@@ -7,49 +7,34 @@ extension NumericExtension on num {
   /// Formats number with specified decimal places.
   ///
   /// Input:
-  /// ```dart
   /// 3.14159.toFixed(2)
   /// -123.456789.toFixed(3)
-  /// ```
   /// Output:
-  /// ```
   /// "3.14"
   /// "-123.457"
-  /// ```
   String toFixed(int decimals) => toStringAsFixed(decimals);
 
   /// Formats number as percentage with optional decimal places.
   ///
   /// Input:
-  /// ```dart
   /// 0.1234.toPercent()
   /// 0.1234.toPercent(2)
-  /// ```
   /// Output:
-  /// ```
   /// "12%"
   /// "12.34%"
-  /// ```
-  String toPercent([int decimals = 0]) =>
-      '${(this * 100).toStringAsFixed(decimals)}%';
+  String toPercent([int decimals = 0]) => '${(this * 100).toStringAsFixed(decimals)}%';
 
   /// Formats number in compact notation (K, M, B).
   ///
   /// Input:
-  /// ```dart
   /// 1234567.toCompact()
   /// 1234567890.toCompact(decimals: 2)
-  /// ```
   /// Output:
-  /// ```
   /// "1.2M"
   /// "1.23B"
-  /// ```
   String toCompact({int decimals = 1}) {
-    if (this >= _billion)
-      return '${(this / _billion).toStringAsFixed(decimals)}B';
-    if (this >= _million)
-      return '${(this / _million).toStringAsFixed(decimals)}M';
+    if (this >= _billion) return '${(this / _billion).toStringAsFixed(decimals)}B';
+    if (this >= _million) return '${(this / _million).toStringAsFixed(decimals)}M';
     if (this >= _k) return '${(this / _k).toStringAsFixed(decimals)}K';
     return toString();
   }
@@ -57,32 +42,23 @@ extension NumericExtension on num {
   /// Formats number as currency with optional symbol and decimal places.
   ///
   /// Input:
-  /// ```dart
   /// 1234.56.toCurrency()
   /// 1234.56.toCurrency(symbol: '€', decimals: 1)
-  /// ```
   /// Output:
-  /// ```
   /// "$1234.56"
   /// "€1234.6"
-  /// ```
-  String toCurrency({String symbol = '\$', int decimals = 2}) =>
-      '$symbol${toStringAsFixed(decimals)}';
+  String toCurrency({String symbol = '\$', int decimals = 2}) => '$symbol${toStringAsFixed(decimals)}';
 
   /// Converts number to ordinal string.
   ///
   /// Input:
-  /// ```dart
   /// 1.toOrdinal()
   /// 22.toOrdinal()
   /// 123.toOrdinal()
-  /// ```
   /// Output:
-  /// ```
   /// "1st"
   /// "22nd"
   /// "123rd"
-  /// ```
   String toOrdinal() {
     if (this >= 11 && this <= 13) return '${this}th';
     switch (this % 10) {
@@ -100,59 +76,43 @@ extension NumericExtension on num {
   /// Clamps value between minimum and maximum.
   ///
   /// Input:
-  /// ```dart
   /// 5.clamp(0, 10)
   /// 15.clamp(0, 10)
   /// -5.clamp(0, 10)
-  /// ```
   /// Output:
-  /// ```
   /// 5
   /// 10
   /// 0
-  /// ```
   num clamp(num min, num max) => this < min ? min : (this > max ? max : this);
 
   /// Checks if number is between two values (inclusive).
   ///
   /// Input:
-  /// ```dart
   /// 5.isBetween(0, 10)
   /// 15.isBetween(0, 10)
-  /// ```
   /// Output:
-  /// ```
   /// true
   /// false
-  /// ```
   bool isBetween(num from, num to) => from <= this && this <= to;
 
   /// Rounds number to nearest multiple.
   ///
   /// Input:
-  /// ```dart
   /// 14.roundToNearest(5)
   /// 27.roundToNearest(10)
-  /// ```
   /// Output:
-  /// ```
   /// 15
   /// 30
-  /// ```
   num roundToNearest(num multiple) => (this / multiple).round() * multiple;
 
   /// Formats number with metric prefix.
   ///
   /// Input:
-  /// ```dart
   /// 1234.toMetric()
   /// 1234567.toMetric(decimals: 2)
-  /// ```
   /// Output:
-  /// ```
   /// "1.2k"
   /// "1.23M"
-  /// ```
   String toMetric({int decimals = 1}) {
     const prefixes = ['', 'k', 'M', 'G', 'T', 'P'];
     var scale = 0;
@@ -174,19 +134,15 @@ extension NumericExtension on num {
   /// the appropriate unit (B, KB, MB, GB, TB).
   ///
   /// Input examples (in bytes):
-  /// ```dart
   /// 900.toFileSize()                // bytes
   /// 1024.toFileSize()              // 1 KB
   /// (1024 * 1024).toFileSize()     // 1 MB
   /// (1024 * 1024 * 1024).toFileSize() // 1 GB
-  /// ```
   /// Output examples:
-  /// ```
   /// "900B"
   /// "1.0KB"
   /// "1.0MB"
   /// "1.0GB"
-  /// ```
   /// Common file size references:
   /// - 1 KB = 1,024 bytes
   /// - 1 MB = 1,048,576 bytes
@@ -208,23 +164,18 @@ extension NumericExtension on num {
   /// Formats number with custom separators.
   ///
   /// Input:
-  /// ```dart
   /// 1234567.89.format()
   /// 1234567.89.format(decimals: 2, thousandSeparator: ' ')
-  /// ```
   /// Output:
-  /// ```
   /// "1,234,568"
   /// "1 234 567.89"
-  /// ```
   String format({
     String decimalSeparator = '.',
     String thousandSeparator = ',',
     int decimals = 0,
   }) {
     var parts = toStringAsFixed(decimals).split('.');
-    parts[0] = parts[0].replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
-        (Match m) => '${m[1]}$thousandSeparator');
+    parts[0] = parts[0].replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}$thousandSeparator');
     return parts.join(decimalSeparator);
   }
 }
