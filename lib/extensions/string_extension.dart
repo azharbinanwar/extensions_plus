@@ -9,7 +9,8 @@ extension StringExtension on String {
   }
 
   /// Case-insensitive contains check
-  bool containsIgnoreCase(String value) => toLowerCase().contains(value.toLowerCase());
+  bool containsIgnoreCase(String value) =>
+      toLowerCase().contains(value.toLowerCase());
 
   /// Generate initials from a name
   String get initials {
@@ -29,7 +30,6 @@ extension StringExtension on String {
     final emailRegExp = RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
     return emailRegExp.hasMatch(this);
   }
-
 
   /// Convert to title case
   String toTitleCase() => split(' ').map((word) => word.capitalize()).join(' ');
@@ -108,7 +108,8 @@ extension StringExtension on String {
     if (requireUppercase && !contains(RegExp(r'[A-Z]'))) return false;
     if (requireLowercase && !contains(RegExp(r'[a-z]'))) return false;
     if (requireNumbers && !contains(RegExp(r'[0-9]'))) return false;
-    if (requireSpecialChars && !contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) return false;
+    if (requireSpecialChars && !contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]')))
+      return false;
 
     return true;
   }

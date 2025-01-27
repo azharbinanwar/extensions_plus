@@ -10,7 +10,6 @@ part 'build_context_navigation.dart';
 
 part 'build_context_device.dart';
 
-
 extension MediaQueryContextExtension on BuildContext {
   double get paddingTop => MediaQuery.of(this).padding.top;
 
@@ -124,8 +123,12 @@ extension DialogContextExtension on BuildContext {
     required Widget child,
     EdgeInsetsGeometry padding = const EdgeInsets.all(16.0),
   }) {
-    List<Widget> userActions =
-        actions.length <= 1 ? actions : actions.map((e) => Padding(padding: const EdgeInsets.symmetric(horizontal: 4.0), child: e)).toList();
+    List<Widget> userActions = actions.length <= 1
+        ? actions
+        : actions
+            .map((e) => Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4.0), child: e))
+            .toList();
     return showGeneralDialog(
       context: this,
       barrierColor: barrierColor ?? Colors.transparent,
@@ -168,7 +171,10 @@ extension DialogContextExtension on BuildContext {
                         child,
                         if (userActions.isNotEmpty) ...{
                           const SizedBox(height: 16.0),
-                          Row(mainAxisAlignment: MainAxisAlignment.center, children: userActions).fit()
+                          Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: userActions)
+                              .fit()
                         },
                       ],
                     ),
@@ -186,6 +192,6 @@ extension DialogContextExtension on BuildContext {
 extension UtilityContextExtension on BuildContext {
   void unfocus() => FocusScope.of(this).unfocus();
 
-  Future<void> copyToClipboard(String text) => Clipboard.setData(ClipboardData(text: text));
-
+  Future<void> copyToClipboard(String text) =>
+      Clipboard.setData(ClipboardData(text: text));
 }

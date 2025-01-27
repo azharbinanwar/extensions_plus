@@ -28,7 +28,8 @@ extension ColorExtension on Color {
   /// ```
   Color lighten([double amount = .1]) {
     final hsl = HSLColor.fromColor(this);
-    final hslLight = hsl.withLightness((hsl.lightness + amount).clamp(0.0, 1.0));
+    final hslLight =
+        hsl.withLightness((hsl.lightness + amount).clamp(0.0, 1.0));
     return hslLight.toColor();
   }
 
@@ -42,7 +43,8 @@ extension ColorExtension on Color {
   /// ```
   Color get invert {
     HSLColor hsl = HSLColor.fromColor(this);
-    HSLColor invertedHsl = hsl.withLightness(1 - hsl.lightness).withSaturation(1 - hsl.saturation);
+    HSLColor invertedHsl =
+        hsl.withLightness(1 - hsl.lightness).withSaturation(1 - hsl.saturation);
     return invertedHsl.toColor();
   }
 

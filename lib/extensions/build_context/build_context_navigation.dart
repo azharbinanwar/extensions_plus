@@ -202,7 +202,8 @@ extension NavigationExtension on BuildContext {
   /// ```dart
   /// context.popUntil((route) => route.isFirst); // Pop to first route
   /// ```
-  void popUntil(bool Function(Route) predicate) => navigator.popUntil(predicate);
+  void popUntil(bool Function(Route) predicate) =>
+      navigator.popUntil(predicate);
 
   /// Whether the navigator can pop the current route.
   bool get canPop => navigator.canPop();

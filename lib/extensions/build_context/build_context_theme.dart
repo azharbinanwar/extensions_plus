@@ -80,7 +80,8 @@ extension BuildContextTheme on BuildContext {
   Color get onPrimaryFixed => Theme.of(this).colorScheme.onPrimaryFixed;
 
   /// Returns the onPrimaryFixedVariant color from the current theme.
-  Color get onPrimaryFixedVariant => Theme.of(this).colorScheme.onPrimaryFixedVariant;
+  Color get onPrimaryFixedVariant =>
+      Theme.of(this).colorScheme.onPrimaryFixedVariant;
 
   /// Secondary Colors
   /// Returns the secondary color from the current theme.
@@ -93,7 +94,8 @@ extension BuildContextTheme on BuildContext {
   Color get secondaryContainer => Theme.of(this).colorScheme.secondaryContainer;
 
   /// Returns the onSecondaryContainer color from the current theme.
-  Color get onSecondaryContainer => Theme.of(this).colorScheme.onSecondaryContainer;
+  Color get onSecondaryContainer =>
+      Theme.of(this).colorScheme.onSecondaryContainer;
 
   /// Returns the secondaryFixed color from the current theme.
   Color get secondaryFixed => Theme.of(this).colorScheme.secondaryFixed;
@@ -105,7 +107,8 @@ extension BuildContextTheme on BuildContext {
   Color get onSecondaryFixed => Theme.of(this).colorScheme.onSecondaryFixed;
 
   /// Returns the onSecondaryFixedVariant color from the current theme.
-  Color get onSecondaryFixedVariant => Theme.of(this).colorScheme.onSecondaryFixedVariant;
+  Color get onSecondaryFixedVariant =>
+      Theme.of(this).colorScheme.onSecondaryFixedVariant;
 
   /// Tertiary Colors
   /// Returns the tertiary color from the current theme.
@@ -118,7 +121,8 @@ extension BuildContextTheme on BuildContext {
   Color get tertiaryContainer => Theme.of(this).colorScheme.tertiaryContainer;
 
   /// Returns the onTertiaryContainer color from the current theme.
-  Color get onTertiaryContainer => Theme.of(this).colorScheme.onTertiaryContainer;
+  Color get onTertiaryContainer =>
+      Theme.of(this).colorScheme.onTertiaryContainer;
 
   /// Returns the tertiaryFixed color from the current theme.
   Color get tertiaryFixed => Theme.of(this).colorScheme.tertiaryFixed;
@@ -130,7 +134,8 @@ extension BuildContextTheme on BuildContext {
   Color get onTertiaryFixed => Theme.of(this).colorScheme.onTertiaryFixed;
 
   /// Returns the onTertiaryFixedVariant color from the current theme.
-  Color get onTertiaryFixedVariant => Theme.of(this).colorScheme.onTertiaryFixedVariant;
+  Color get onTertiaryFixedVariant =>
+      Theme.of(this).colorScheme.onTertiaryFixedVariant;
 
   /// Error Colors
   /// Returns the error color from the current theme.
@@ -159,19 +164,23 @@ extension BuildContextTheme on BuildContext {
   Color get surfaceBright => Theme.of(this).colorScheme.surfaceBright;
 
   /// Returns the surfaceContainerLowest color from the current theme.
-  Color get surfaceContainerLowest => Theme.of(this).colorScheme.surfaceContainerLowest;
+  Color get surfaceContainerLowest =>
+      Theme.of(this).colorScheme.surfaceContainerLowest;
 
   /// Returns the surfaceContainerLow color from the current theme.
-  Color get surfaceContainerLow => Theme.of(this).colorScheme.surfaceContainerLow;
+  Color get surfaceContainerLow =>
+      Theme.of(this).colorScheme.surfaceContainerLow;
 
   /// Returns the surfaceContainer color from the current theme.
   Color get surfaceContainer => Theme.of(this).colorScheme.surfaceContainer;
 
   /// Returns the surfaceContainerHigh color from the current theme.
-  Color get surfaceContainerHigh => Theme.of(this).colorScheme.surfaceContainerHigh;
+  Color get surfaceContainerHigh =>
+      Theme.of(this).colorScheme.surfaceContainerHigh;
 
   /// Returns the surfaceContainerHighest color from the current theme.
-  Color get surfaceContainerHighest => Theme.of(this).colorScheme.surfaceContainerHighest;
+  Color get surfaceContainerHighest =>
+      Theme.of(this).colorScheme.surfaceContainerHighest;
 
   /// Other Colors
   /// Returns the onSurfaceVariant color from the current theme.
@@ -209,5 +218,6 @@ extension BuildContextTheme on BuildContext {
 // Icon Theme
   Color get iconColor => Theme.of(this).iconTheme.color!;
 
-  BottomNavigationBarThemeData get bottomNavigationBarTheme => Theme.of(this).bottomNavigationBarTheme;
+  BottomNavigationBarThemeData get bottomNavigationBarTheme =>
+      Theme.of(this).bottomNavigationBarTheme;
 }

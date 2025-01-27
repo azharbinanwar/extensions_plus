@@ -5,7 +5,8 @@ import 'package:flutter/services.dart';
 /// Extension methods for the `Widget` class to add various utility functions.
 extension WidgetExtension on Widget {
   /// Adds padding to all sides of the widget.
-  Widget paddingAll(double value) => Padding(padding: EdgeInsets.all(value), child: this);
+  Widget paddingAll(double value) =>
+      Padding(padding: EdgeInsets.all(value), child: this);
 
   /// Adds custom padding to the widget.
   Widget padding(EdgeInsets padding) => Padding(padding: padding, child: this);
@@ -26,7 +27,8 @@ extension WidgetExtension on Widget {
       );
 
   /// Adds a tap gesture to the widget.
-  Widget onTap(VoidCallback? onTap) => GestureDetector(onTap: onTap, child: this);
+  Widget onTap(VoidCallback? onTap) =>
+      GestureDetector(onTap: onTap, child: this);
 
   /// Adds symmetric padding to the widget.
   Widget paddingSymmetric({
@@ -34,7 +36,8 @@ extension WidgetExtension on Widget {
     double vertical = 0.0,
   }) =>
       Padding(
-        padding: EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
+        padding:
+            EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
         child: this,
       );
 
@@ -46,7 +49,8 @@ extension WidgetExtension on Widget {
     double bottom = 0.0,
   }) =>
       Padding(
-        padding: EdgeInsets.only(left: left, right: right, top: top, bottom: bottom),
+        padding:
+            EdgeInsets.only(left: left, right: right, top: top, bottom: bottom),
         child: this,
       );
 
@@ -63,7 +67,8 @@ extension WidgetExtension on Widget {
       );
 
   /// Adds margin to all sides of the widget.
-  Widget marginAll(double value) => Padding(padding: EdgeInsets.all(value), child: this);
+  Widget marginAll(double value) =>
+      Padding(padding: EdgeInsets.all(value), child: this);
 
   /// Adds symmetric margin to the widget.
   Widget marginSymmetric({
@@ -71,7 +76,8 @@ extension WidgetExtension on Widget {
     required double vertical,
   }) =>
       Padding(
-        padding: EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
+        padding:
+            EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
         child: this,
       );
 
@@ -83,7 +89,8 @@ extension WidgetExtension on Widget {
     required double bottom,
   }) =>
       Padding(
-        padding: EdgeInsets.only(left: left, right: right, top: top, bottom: bottom),
+        padding:
+            EdgeInsets.only(left: left, right: right, top: top, bottom: bottom),
         child: this,
       );
 
@@ -137,7 +144,8 @@ extension WidgetExtension on Widget {
   Widget showIf(bool value) => value ? this : const SizedBox.shrink();
 
   /// Aligns the widget.
-  Widget align([AlignmentGeometry alignment = Alignment.center]) => Align(alignment: alignment, child: this);
+  Widget align([AlignmentGeometry alignment = Alignment.center]) =>
+      Align(alignment: alignment, child: this);
 
   /// Expands the widget.
   Widget expanded({int flex = 1}) => Expanded(flex: flex, child: this);
@@ -207,12 +215,18 @@ extension WidgetExtension on Widget {
   }
 
   /// Updates the status bar color according to the screens and theme.
-  Widget annotateRegion(BuildContext context, {Color? statusBarColor, Brightness? statusBarIconBrightness, Brightness? statusBarBrightness}) {
+  Widget annotateRegion(BuildContext context,
+      {Color? statusBarColor,
+      Brightness? statusBarIconBrightness,
+      Brightness? statusBarBrightness}) {
     Brightness brightness = Theme.of(context).brightness;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
         statusBarColor: statusBarColor ?? context.appBarColor,
-        statusBarIconBrightness: statusBarIconBrightness ?? (brightness == Brightness.light ? Brightness.dark : Brightness.light),
+        statusBarIconBrightness: statusBarIconBrightness ??
+            (brightness == Brightness.light
+                ? Brightness.dark
+                : Brightness.light),
         statusBarBrightness: statusBarBrightness ?? brightness,
       ),
       child: this,
@@ -220,7 +234,11 @@ extension WidgetExtension on Widget {
   }
 
   /// Converts the widget to a scrollable list.
-  Widget toScrollableList({int itemCount = 10, Axis scrollDirection = Axis.vertical, EdgeInsets padding = EdgeInsets.zero, Widget? separator}) {
+  Widget toScrollableList(
+      {int itemCount = 10,
+      Axis scrollDirection = Axis.vertical,
+      EdgeInsets padding = EdgeInsets.zero,
+      Widget? separator}) {
     List<Widget> items = List.generate(itemCount, (index) => this);
     if (separator != null) {
       items = items.expand((element) => [element, separator]).toList();
@@ -229,13 +247,16 @@ extension WidgetExtension on Widget {
     return SingleChildScrollView(
       padding: padding,
       scrollDirection: scrollDirection,
-      child: scrollDirection == Axis.vertical ? Column(children: items) : Row(children: items),
+      child: scrollDirection == Axis.vertical
+          ? Column(children: items)
+          : Row(children: items),
     );
   }
 
   /// Converts the widget to a scrollable grid.
   Widget toScrollableGrid({
-    SliverGridDelegate gridDelegate = const SliverGridDelegateWithFixedCrossAxisCount(
+    SliverGridDelegate gridDelegate =
+        const SliverGridDelegateWithFixedCrossAxisCount(
       crossAxisCount: 2,
       crossAxisSpacing: 16.0,
       mainAxisSpacing: 16.0,
@@ -256,7 +277,9 @@ extension WidgetExtension on Widget {
   }
 
   /// Makes the widget scrollable.
-  Widget scrollable({Axis scrollDirection = Axis.vertical, EdgeInsets padding = EdgeInsets.zero}) {
+  Widget scrollable(
+      {Axis scrollDirection = Axis.vertical,
+      EdgeInsets padding = EdgeInsets.zero}) {
     return SingleChildScrollView(
       scrollDirection: scrollDirection,
       padding: padding,
@@ -278,7 +301,8 @@ extension WidgetExtension on Widget {
       );
 
   /// Adds circular border radius to the widget.
-  Widget circular(double radius) => ClipRRect(borderRadius: BorderRadius.circular(radius), child: this);
+  Widget circular(double radius) =>
+      ClipRRect(borderRadius: BorderRadius.circular(radius), child: this);
 
   /// Adds opacity to the widget.
   Widget opacity(double value) => Opacity(opacity: value, child: this);

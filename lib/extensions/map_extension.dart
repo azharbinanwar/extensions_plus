@@ -84,6 +84,9 @@ extension MapExtension<K, V> on Map<K, V> {
   /// final queryParams = params.toQueryParams(); // 'name=John&age=30'
   /// ```
   String toQueryParams() {
-    return entries.map((entry) => '${Uri.encodeComponent(entry.key.toString())}=${Uri.encodeComponent(entry.value.toString())}').join('&');
+    return entries
+        .map((entry) =>
+            '${Uri.encodeComponent(entry.key.toString())}=${Uri.encodeComponent(entry.value.toString())}')
+        .join('&');
   }
 }

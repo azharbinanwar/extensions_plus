@@ -6,7 +6,8 @@ extension DateTimeExtension on DateTime {
   /// [format] Date format pattern (default: 'dd-MM-yyyy')
   /// [locale] Optional locale for formatting
   /// [Returns] Formatted date string
-  String format({String format = 'dd-MM-yyyy', String? locale}) => DateFormat(format, locale).format(this);
+  String format({String format = 'dd-MM-yyyy', String? locale}) =>
+      DateFormat(format, locale).format(this);
 
   /// Check if the date is today
   ///
@@ -27,13 +28,15 @@ extension DateTimeExtension on DateTime {
   ///
   /// [time] Date to compare
   /// [Returns] true if dates are on the same day
-  bool isSameDay(DateTime? time) => year == time?.year && month == time?.month && day == time?.day;
+  bool isSameDay(DateTime? time) =>
+      year == time?.year && month == time?.month && day == time?.day;
 
   /// Check if two dates are in the same month
   ///
   /// [time] Date to compare
   /// [Returns] true if dates are in the same month
-  bool isSameMonth(DateTime? time) => year == time?.year && month == time?.month;
+  bool isSameMonth(DateTime? time) =>
+      year == time?.year && month == time?.month;
 
   /// Calculate human-readable time difference
   ///
@@ -42,7 +45,9 @@ extension DateTimeExtension on DateTime {
     final now = DateTime.now();
     final difference = now.difference(this);
 
-    return difference.isNegative ? _futureTimeString(difference.abs()) : _pastTimeString(difference);
+    return difference.isNegative
+        ? _futureTimeString(difference.abs())
+        : _pastTimeString(difference);
   }
 
   /// Generate a string for past time differences
@@ -55,7 +60,8 @@ extension DateTimeExtension on DateTime {
     if (difference.inHours < 24) return '${difference.inHours} h';
     if (difference.inDays < 7) return '${difference.inDays} d';
     if (difference.inDays < 30) return '${(difference.inDays / 7).floor()} w';
-    if (difference.inDays < 365) return '${(difference.inDays / 30).floor()} mo';
+    if (difference.inDays < 365)
+      return '${(difference.inDays / 30).floor()} mo';
     return '${(difference.inDays / 365).floor()} y';
   }
 
@@ -68,8 +74,10 @@ extension DateTimeExtension on DateTime {
     if (difference.inMinutes < 60) return 'In ${difference.inMinutes} m';
     if (difference.inHours < 24) return 'In ${difference.inHours} h';
     if (difference.inDays < 7) return 'In ${difference.inDays} d';
-    if (difference.inDays < 30) return 'In ${(difference.inDays / 7).floor()} w';
-    if (difference.inDays < 365) return 'In ${(difference.inDays / 30).floor()} mo';
+    if (difference.inDays < 30)
+      return 'In ${(difference.inDays / 7).floor()} w';
+    if (difference.inDays < 365)
+      return 'In ${(difference.inDays / 30).floor()} mo';
     return 'In ${(difference.inDays / 365).floor()} y';
   }
 

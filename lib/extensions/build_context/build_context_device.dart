@@ -40,16 +40,20 @@ extension DeviceContextExtension on BuildContext {
   bool get isMobile => width <= kMobileBreakpoint;
 
   /// Returns true if screen width is > 480.0 and <= 600.0
-  bool get isSmallTablet => width > kMobileBreakpoint && width <= kSmallTabletBreakpoint;
+  bool get isSmallTablet =>
+      width > kMobileBreakpoint && width <= kSmallTabletBreakpoint;
 
   /// Returns true if screen width is > 600.0 and <= 768.0
-  bool get isTablet => width > kSmallTabletBreakpoint && width <= kTabletBreakpoint;
+  bool get isTablet =>
+      width > kSmallTabletBreakpoint && width <= kTabletBreakpoint;
 
   /// Returns true if screen width is > 768.0 and <= 1024.0
-  bool get isSmallDesktop => width > kTabletBreakpoint && width <= kDesktopBreakpoint;
+  bool get isSmallDesktop =>
+      width > kTabletBreakpoint && width <= kDesktopBreakpoint;
 
   /// Returns true if screen width is > 1024.0 and <= 1440.0
-  bool get isDesktop => width > kDesktopBreakpoint && width <= kLargeDesktopBreakpoint;
+  bool get isDesktop =>
+      width > kDesktopBreakpoint && width <= kLargeDesktopBreakpoint;
 
   /// Returns true if screen width is > 1440.0
   bool get isLargeDesktop => width > kLargeDesktopBreakpoint;
@@ -58,7 +62,8 @@ extension DeviceContextExtension on BuildContext {
   ///
   /// [baseWidth] The minimum width for each column (default: 400.0)
   /// Returns at least 1 column, more for wider screens
-  int responsiveColumns({double baseWidth = 400.0}) => max((width / baseWidth).floor(), 1);
+  int responsiveColumns({double baseWidth = 400.0}) =>
+      max((width / baseWidth).floor(), 1);
 
   /// Returns appropriate padding based on screen size
   EdgeInsets get responsivePadding => EdgeInsets.all(isMobile
