@@ -76,7 +76,8 @@ extension IterableExtension<T> on Iterable<T> {
   /// ['a', 'b', 'c'].toIndexMap()
   /// // Result: {0: 'a', 1: 'b', 2: 'c'}
   Map<int, T> toIndexMap() {
-    return Map.fromEntries(enumerate().map((entry) => MapEntry(entry.$1, entry.$2)));
+    return Map.fromEntries(
+        enumerate().map((entry) => MapEntry(entry.$1, entry.$2)));
   }
 
   /// Returns iterable of (index, value) pairs.

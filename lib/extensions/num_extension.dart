@@ -22,7 +22,8 @@ extension NumericExtension on num {
   /// Output:
   /// "12%"
   /// "12.34%"
-  String toPercent([int decimals = 0]) => '${(this * 100).toStringAsFixed(decimals)}%';
+  String toPercent([int decimals = 0]) =>
+      '${(this * 100).toStringAsFixed(decimals)}%';
 
   /// Formats number in compact notation (K, M, B).
   ///
@@ -33,8 +34,10 @@ extension NumericExtension on num {
   /// "1.2M"
   /// "1.23B"
   String toCompact({int decimals = 1}) {
-    if (this >= _billion) return '${(this / _billion).toStringAsFixed(decimals)}B';
-    if (this >= _million) return '${(this / _million).toStringAsFixed(decimals)}M';
+    if (this >= _billion)
+      return '${(this / _billion).toStringAsFixed(decimals)}B';
+    if (this >= _million)
+      return '${(this / _million).toStringAsFixed(decimals)}M';
     if (this >= _k) return '${(this / _k).toStringAsFixed(decimals)}K';
     return toString();
   }
@@ -47,7 +50,8 @@ extension NumericExtension on num {
   /// Output:
   /// "$1234.56"
   /// "€1234.6"
-  String toCurrency({String symbol = '\$', int decimals = 2}) => '$symbol${toStringAsFixed(decimals)}';
+  String toCurrency({String symbol = '\$', int decimals = 2}) =>
+      '$symbol${toStringAsFixed(decimals)}';
 
   /// Converts number to ordinal string.
   ///
@@ -175,7 +179,8 @@ extension NumericExtension on num {
     int decimals = 0,
   }) {
     var parts = toStringAsFixed(decimals).split('.');
-    parts[0] = parts[0].replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}$thousandSeparator');
+    parts[0] = parts[0].replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+        (Match m) => '${m[1]}$thousandSeparator');
     return parts.join(decimalSeparator);
   }
 }
