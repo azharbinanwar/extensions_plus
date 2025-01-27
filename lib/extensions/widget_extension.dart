@@ -1,4 +1,4 @@
-import 'package:extensions_plus/extensions/build_context_extension.dart';
+import 'package:extensions_plus/extensions_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
