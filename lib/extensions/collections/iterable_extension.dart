@@ -133,7 +133,7 @@ extension IterableExtension<T> on Iterable<T> {
   /// Returns max element based on selector function.
   ///
   /// ['cat', 'elephant', 'dog'].maxBy((s) => s.length) // 'elephant'
-  T? maxBy<R extends Comparable<R>>(R Function(T) selector) {
+  T? maxBy<R extends Comparable>(R Function(T) selector) {
     if (isEmpty) return null;
     return reduce((a, b) => selector(a).compareTo(selector(b)) > 0 ? a : b);
   }
@@ -141,7 +141,7 @@ extension IterableExtension<T> on Iterable<T> {
   /// Returns min element based on selector function.
   ///
   /// ['cat', 'elephant', 'dog'].minBy((s) => s.length) // 'cat'
-  T? minBy<R extends Comparable<R>>(R Function(T) selector) {
+  T? minBy<R extends Comparable>(R Function(T) selector) {
     if (isEmpty) return null;
     return reduce((a, b) => selector(a).compareTo(selector(b)) < 0 ? a : b);
   }

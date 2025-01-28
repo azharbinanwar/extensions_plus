@@ -8,7 +8,4 @@
         - **Color Extension**: Convenient utilities for color manipulation.
         - **BuildContext Extension**: Streamlined access to Flutter context.
         - **Route Extension**: Simplified navigation in Flutter apps.
-    - Added a basic example project to demonstrate the use of all extensions.
-
-- **Improvements**
-    - Refactored the `BuildContext` extension into a separate part file for better modularity.
+    - Added a complete example project to demonstrate the use of all extensions.
