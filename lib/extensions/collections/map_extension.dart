@@ -21,12 +21,14 @@ extension MapExtension<K, V> on Map<K, V> {
   /// //   ]
   /// // }
   /// ```
-  Map<K, List<V>> groupByMultiple(List<K> Function(V) keySelector) {
-    final result = <K, List<V>>{};
+  Map<String, List<V>> groupByMultiple(List<dynamic> Function(V) keySelector) {
+    final result = <String, List<V>>{};
     forEach((_, value) {
       final keys = keySelector(value);
       for (var key in keys) {
-        result.putIfAbsent(key, () => []).add(value);
+        // Convert key to string to ensure consistency
+        String stringKey = key.toString();
+        result.putIfAbsent(stringKey, () => []).add(value);
       }
     });
     return result;
@@ -59,8 +61,8 @@ extension MapExtension<K, V> on Map<K, V> {
   /// //   }
   /// // }
   /// ```
-  Map<K, V> updateNested(List<K> path, V Function(V?) update) {
-    Map<K, V> result = Map.from(this);
+  Map<K, V> updateNested(List<dynamic> path, V Function(V?) update) {
+    Map<K, V> result = Map<K, V>.from(this);
     dynamic current = result;
 
     for (int i = 0; i < path.length - 1; i++) {

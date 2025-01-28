@@ -34,10 +34,12 @@ extension NumericExtension on num {
   /// "1.2M"
   /// "1.23B"
   String toCompact({int decimals = 1}) {
-    if (this >= _billion)
+    if (this >= _billion) {
       return '${(this / _billion).toStringAsFixed(decimals)}B';
-    if (this >= _million)
+    }
+    if (this >= _million) {
       return '${(this / _million).toStringAsFixed(decimals)}M';
+    }
     if (this >= _k) return '${(this / _k).toStringAsFixed(decimals)}K';
     return toString();
   }

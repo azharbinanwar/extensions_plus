@@ -8,9 +8,7 @@ extension ColorExtension on Color {
   /// Returns a new darkened color
   ///
   /// Example:
-  /// ```dart
   /// Color darkBlue = Colors.blue.darken(0.2); // Darken by 20%
-  /// ```
   Color darken([double amount = .1]) {
     final hsl = HSLColor.fromColor(this);
     final hslDark = hsl.withLightness((hsl.lightness - amount).clamp(0.0, 1.0));
@@ -23,9 +21,7 @@ extension ColorExtension on Color {
   /// Returns a new lightened color
   ///
   /// Example:
-  /// ```dart
   /// Color lightBlue = Colors.blue.lighten(0.2); // Lighten by 20%
-  /// ```
   Color lighten([double amount = .1]) {
     final hsl = HSLColor.fromColor(this);
     final hslLight =
@@ -38,9 +34,7 @@ extension ColorExtension on Color {
   /// Returns a new color with inverted properties
   ///
   /// Example:
-  /// ```dart
   /// Color invertedColor = Colors.blue.invert;
-  /// ```
   Color get invert {
     HSLColor hsl = HSLColor.fromColor(this);
     HSLColor invertedHsl =
@@ -55,9 +49,7 @@ extension ColorExtension on Color {
   /// Returns [Colors.white] for dark backgrounds
   ///
   /// Example:
-  /// ```dart
   /// Color textColor = someColor.onIt;
-  /// ```
   Color get onIt {
     final double r = this.r;
     final double g = this.g;
@@ -75,10 +67,9 @@ extension ColorExtension on Color {
   /// Returns a hex representation in format: #AARRGGBB
   ///
   /// Example:
-  /// ```dart
   /// String hexColor = Colors.blue.hex; // #FF0000FF
-  /// ```
-  String get hex {
+  String get hexWithAlpha {
+    // consider hex with alpha
     return '#${(a * 255).toInt().toRadixString(16).padLeft(2, '0')}'
             '${(r * 255).toInt().toRadixString(16).padLeft(2, '0')}'
             '${(g * 255).toInt().toRadixString(16).padLeft(2, '0')}'
@@ -91,13 +82,11 @@ extension ColorExtension on Color {
   /// Returns a hex representation in format: #RRGGBB
   ///
   /// Example:
-  /// ```dart
   /// String hexColor = Colors.blue.hexWithoutAlpha(); // #0000FF
-  /// ```
-  String hexWithoutAlpha() {
+  String get hex {
     return '#${(r * 255).toInt().toRadixString(16).padLeft(2, '0')}'
         '${(g * 255).toInt().toRadixString(16).padLeft(2, '0')}'
-        '${(b * 255).toInt().toRadixString(16).padLeft(2, '0')}';
+        '${(b * 255).toInt().toRadixString(16).padLeft(2, '0')}'.toLowerCase();
   }
 
   /// Adjusts the brightness of the color
@@ -107,9 +96,7 @@ extension ColorExtension on Color {
   /// Clamps result between 0.0 and 1.0
   ///
   /// Example:
-  /// ```dart
   /// Color brighterBlue = Colors.blue.brightness(1.5);
-  /// ```
   Color brightness(double factor) {
     assert(factor >= 0, 'Brightness factor must be non-negative');
 
@@ -124,9 +111,7 @@ extension ColorExtension on Color {
   /// [factor] multiplies the current saturation
   ///
   /// Example:
-  /// ```dart
   /// Color desaturatedBlue = Colors.blue.saturation(0.5);
-  /// ```
   Color saturation(double factor) {
     HSLColor hsl = HSLColor.fromColor(this);
     HSLColor adjustedHsl = hsl.withSaturation(hsl.saturation * factor);
@@ -138,9 +123,7 @@ extension ColorExtension on Color {
   /// Provides shades from very light (50) to very dark (900)
   ///
   /// Example:
-  /// ```dart
-  /// List<Color> blueShades = Colors.blue.shades;
-  /// ```
+  /// ```List<Color> blueShades = Colors.blue.shades```;
   List<Color> get shades {
     final hslColor = HSLColor.fromColor(this);
 

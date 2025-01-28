@@ -108,8 +108,9 @@ extension StringExtension on String {
     if (requireUppercase && !contains(RegExp(r'[A-Z]'))) return false;
     if (requireLowercase && !contains(RegExp(r'[a-z]'))) return false;
     if (requireNumbers && !contains(RegExp(r'[0-9]'))) return false;
-    if (requireSpecialChars && !contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]')))
+    if (requireSpecialChars && !contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
       return false;
+    }
 
     return true;
   }

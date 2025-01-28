@@ -60,8 +60,9 @@ extension DateTimeExtension on DateTime {
     if (difference.inHours < 24) return '${difference.inHours} h';
     if (difference.inDays < 7) return '${difference.inDays} d';
     if (difference.inDays < 30) return '${(difference.inDays / 7).floor()} w';
-    if (difference.inDays < 365)
+    if (difference.inDays < 365) {
       return '${(difference.inDays / 30).floor()} mo';
+    }
     return '${(difference.inDays / 365).floor()} y';
   }
 
@@ -74,10 +75,12 @@ extension DateTimeExtension on DateTime {
     if (difference.inMinutes < 60) return 'In ${difference.inMinutes} m';
     if (difference.inHours < 24) return 'In ${difference.inHours} h';
     if (difference.inDays < 7) return 'In ${difference.inDays} d';
-    if (difference.inDays < 30)
+    if (difference.inDays < 30) {
       return 'In ${(difference.inDays / 7).floor()} w';
-    if (difference.inDays < 365)
+    }
+    if (difference.inDays < 365) {
       return 'In ${(difference.inDays / 30).floor()} mo';
+    }
     return 'In ${(difference.inDays / 365).floor()} y';
   }
 
