@@ -58,7 +58,8 @@ class ColorExtensionPage extends StatelessWidget {
   }
 
   // Helper to build rows of colors
-  Widget buildColorRow(BuildContext context, Color baseColor, List<String> labels, List<Color> colors) {
+  Widget buildColorRow(BuildContext context, Color baseColor,
+      List<String> labels, List<Color> colors) {
     return Row(
       children: List.generate(colors.length, (index) {
         return Expanded(

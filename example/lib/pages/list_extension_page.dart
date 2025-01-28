@@ -208,28 +208,30 @@ class _ListExtensionPageState extends State<ListExtensionPage> {
             ),
             const SizedBox(height: 16),
             ...grouped.entries.map((entry) => Container(
-              margin: const EdgeInsets.only(bottom: 8),
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.grey.shade100,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('${_groupByKey.toUpperCase()}: ${entry.key}',
-                      style: const TextStyle(fontWeight: FontWeight.w500)),
-                  const SizedBox(height: 8),
-                  Wrap(
-                    spacing: 8,
-                    children: entry.value.map((user) => Chip(
-                      label: Text('${user['name']}'),
-                      backgroundColor: Colors.blue.shade100,
-                    )).toList(),
+                  margin: const EdgeInsets.only(bottom: 8),
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade100,
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                ],
-              ),
-            )),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('${_groupByKey.toUpperCase()}: ${entry.key}',
+                          style: const TextStyle(fontWeight: FontWeight.w500)),
+                      const SizedBox(height: 8),
+                      Wrap(
+                        spacing: 8,
+                        children: entry.value
+                            .map((user) => Chip(
+                                  label: Text('${user['name']}'),
+                                  backgroundColor: Colors.blue.shade100,
+                                ))
+                            .toList(),
+                      ),
+                    ],
+                  ),
+                )),
           ],
         ),
       ),
@@ -265,9 +267,9 @@ class _ListExtensionPageState extends State<ListExtensionPage> {
                             style: TextStyle(fontWeight: FontWeight.w500)),
                         const SizedBox(height: 8),
                         ...partitioned[0].map((user) => Padding(
-                          padding: const EdgeInsets.only(bottom: 4),
-                          child: Text('${user['name']} (${user['age']})'),
-                        )),
+                              padding: const EdgeInsets.only(bottom: 4),
+                              child: Text('${user['name']} (${user['age']})'),
+                            )),
                       ],
                     ),
                   ),
@@ -287,9 +289,9 @@ class _ListExtensionPageState extends State<ListExtensionPage> {
                             style: TextStyle(fontWeight: FontWeight.w500)),
                         const SizedBox(height: 8),
                         ...partitioned[1].map((user) => Padding(
-                          padding: const EdgeInsets.only(bottom: 4),
-                          child: Text('${user['name']} (${user['age']})'),
-                        )),
+                              padding: const EdgeInsets.only(bottom: 4),
+                              child: Text('${user['name']} (${user['age']})'),
+                            )),
                       ],
                     ),
                   ),
@@ -395,7 +397,9 @@ class _ListExtensionPageState extends State<ListExtensionPage> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: element != null ? Colors.green.shade100 : Colors.red.shade100,
+                color: element != null
+                    ? Colors.green.shade100
+                    : Colors.red.shade100,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Column(
@@ -444,10 +448,13 @@ class _ListExtensionPageState extends State<ListExtensionPage> {
             Wrap(
               spacing: 8,
               runSpacing: 8,
-              children: _users.shuffled().map((user) => Chip(
-                label: Text('${user['name']}'),
-                backgroundColor: Colors.purple.shade100,
-              )).toList(),
+              children: _users
+                  .shuffled()
+                  .map((user) => Chip(
+                        label: Text('${user['name']}'),
+                        backgroundColor: Colors.purple.shade100,
+                      ))
+                  .toList(),
             ),
           ],
         ),

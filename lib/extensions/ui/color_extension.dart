@@ -85,8 +85,9 @@ extension ColorExtension on Color {
   /// String hexColor = Colors.blue.hexWithoutAlpha(); // #0000FF
   String get hex {
     return '#${(r * 255).toInt().toRadixString(16).padLeft(2, '0')}'
-        '${(g * 255).toInt().toRadixString(16).padLeft(2, '0')}'
-        '${(b * 255).toInt().toRadixString(16).padLeft(2, '0')}'.toLowerCase();
+            '${(g * 255).toInt().toRadixString(16).padLeft(2, '0')}'
+            '${(b * 255).toInt().toRadixString(16).padLeft(2, '0')}'
+        .toLowerCase();
   }
 
   /// Adjusts the brightness of the color

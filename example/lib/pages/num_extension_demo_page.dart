@@ -64,7 +64,8 @@ class NumericExtensionDemoPage extends StatelessWidget {
       {
         'value': demoNumber.toString(),
         'function': 'format(",", ".")',
-        'result': demoNumber.format(thousandSeparator: ',', decimalSeparator: '.'),
+        'result':
+            demoNumber.format(thousandSeparator: ',', decimalSeparator: '.'),
       },
     ];
 
