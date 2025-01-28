@@ -1,6 +1,4 @@
-import 'package:extensions_plus/extensions_plus.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+part of '../../extensions_plus.dart';
 
 /// Extension methods for the `Widget` class to add various utility functions.
 extension WidgetExtension on Widget {

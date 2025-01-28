@@ -1,3 +1,5 @@
+part of '../../extensions_plus.dart';
+
 /// Extension on [num] to provide utility methods for numeric operations and formatting.
 extension NumericExtension on num {
   static const _k = 1000;

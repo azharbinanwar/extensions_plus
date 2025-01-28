@@ -1,4 +1,4 @@
-part of 'build_context_extension.dart';
+part of '../../extensions_plus.dart';
 
 /// A powerful extension on [BuildContext] that provides convenient navigation methods
 /// with full support for all [MaterialPageRoute] properties.

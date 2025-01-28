@@ -1,4 +1,4 @@
-import 'package:intl/intl.dart';
+part of '../../extensions_plus.dart';
 
 extension DateTimeExtension on DateTime {
   /// Format date with custom pattern and optional locale

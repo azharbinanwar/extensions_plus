@@ -1,5 +1,4 @@
-import 'dart:convert';
-import 'package:flutter/material.dart';
+part of '../../extensions_plus.dart';
 
 extension StringExtension on String {
   /// Capitalize first letter of string

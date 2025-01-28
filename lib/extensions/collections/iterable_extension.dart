@@ -1,3 +1,5 @@
+part of '../../extensions_plus.dart';
+
 /// Extension methods for [Iterable] to provide additional utility functions.
 extension IterableExtension<T> on Iterable<T> {
   /// Groups elements by a key generated from each element.

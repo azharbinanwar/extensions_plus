@@ -1,6 +1,17 @@
-part of 'build_context_extension.dart';
+part of '../../extensions_plus.dart';
 
 extension BuildContextTheme on BuildContext {
+  /// TYPOGRAPHY & ICONOGRAPHY
+
+  /// Retrieves the primary [TextTheme] for this theme.
+  TextTheme? get primaryTextTheme => Theme.of(this).primaryTextTheme;
+
+  /// Retrieves the general [TextTheme] for this theme.
+  TextTheme? get textTheme => Theme.of(this).textTheme;
+
+  /// Retrieves the [Typography] settings for this theme.
+  Typography? get typography => Theme.of(this).typography;
+
   /// Returns the `displayLarge` text style from the current theme.
   TextStyle? get displayLarge => Theme.of(this).textTheme.displayLarge;
 
@@ -210,14 +221,216 @@ extension BuildContextTheme on BuildContext {
   /// Returns the surfaceTint color from the current theme.
   Color get surfaceTint => Theme.of(this).colorScheme.surfaceTint;
 
-// AppBar Theme
+  /// AppBar Theme
   AppBarTheme get appBarTheme => Theme.of(this).appBarTheme;
 
   Color get appBarColor => Theme.of(this).appBarTheme.backgroundColor!;
 
-// Icon Theme
+  /// Icon Theme
   Color get iconColor => Theme.of(this).iconTheme.color!;
 
-  BottomNavigationBarThemeData get bottomNavigationBarTheme =>
+  /// Access the color scheme of the current theme.
+  ColorScheme? get colorScheme => Theme.of(this).colorScheme;
+
+  /// Access the canvas color of the current theme.
+  Color? get canvasColor => Theme.of(this).canvasColor;
+
+  /// Access the card color of the current theme.
+  Color? get cardColor => Theme.of(this).cardColor;
+
+  /// Access the dialog background color of the current theme.
+  Color? get dialogBackgroundColor => Theme.of(this).dialogBackgroundColor;
+
+  /// Access the disabled color of the current theme.
+  Color? get disabledColor => Theme.of(this).disabledColor;
+
+  /// Access the divider color of the current theme.
+  Color? get dividerColor => Theme.of(this).dividerColor;
+
+  /// Access the focus color of the current theme.
+  Color? get focusColor => Theme.of(this).focusColor;
+
+  /// Access the highlight color of the current theme.
+  Color? get highlightColor => Theme.of(this).highlightColor;
+
+  /// Access the hint color of the current theme.
+  Color? get hintColor => Theme.of(this).hintColor;
+
+  /// Access the hover color of the current theme.
+  Color? get hoverColor => Theme.of(this).hoverColor;
+
+  /// Access the indicator color of the current theme.
+  Color? get indicatorColor => Theme.of(this).indicatorColor;
+
+  /// Access the primary color of the current theme.
+  Color? get primaryColor => Theme.of(this).primaryColor;
+
+  /// Access the dark variant of the primary color.
+  Color? get primaryColorDark => Theme.of(this).primaryColorDark;
+
+  /// Access the light variant of the primary color.
+  Color? get primaryColorLight => Theme.of(this).primaryColorLight;
+
+  /// Access the scaffold background color of the current theme.
+  Color? get scaffoldBackgroundColor => Theme.of(this).scaffoldBackgroundColor;
+
+  /// Access the secondary header color of the current theme.
+  Color? get secondaryHeaderColor => Theme.of(this).secondaryHeaderColor;
+
+  /// Access the shadow color of the current theme.
+  Color? get shadowColor => Theme.of(this).shadowColor;
+
+  /// Access the splash color of the current theme.
+  Color? get splashColor => Theme.of(this).splashColor;
+
+  /// Access the unselected widget color of the current theme.
+  Color? get unselectedWidgetColor => Theme.of(this).unselectedWidgetColor;
+
+  // COMPONENT THEMES
+
+  /// Retrieves the [IconThemeData] for action icons.
+  IconThemeData? get actionIconTheme => Theme.of(this).iconTheme;
+
+  /// Retrieves the [BadgeThemeData] for badges.
+  BadgeThemeData? get badgeTheme => Theme.of(this).badgeTheme;
+
+  /// Retrieves the [MaterialBannerThemeData] for material banners.
+  MaterialBannerThemeData? get bannerTheme => Theme.of(this).bannerTheme;
+
+  /// Retrieves the [BottomAppBarTheme] for bottom app bars.
+  BottomAppBarTheme? get bottomAppBarTheme => Theme.of(this).bottomAppBarTheme;
+
+  /// Retrieves the [BottomNavigationBarThemeData] for bottom navigation bars.
+  BottomNavigationBarThemeData? get bottomNavigationBarTheme =>
       Theme.of(this).bottomNavigationBarTheme;
+
+  /// Retrieves the [BottomSheetThemeData] for bottom sheets.
+  BottomSheetThemeData? get bottomSheetTheme => Theme.of(this).bottomSheetTheme;
+
+  /// Retrieves the [ButtonThemeData] for buttons.
+  ButtonThemeData? get buttonTheme => Theme.of(this).buttonTheme;
+
+  /// Retrieves the [CardTheme] for cards.
+  CardThemeData get cardTheme => Theme.of(this).cardTheme;
+
+  /// Retrieves the [CheckboxThemeData] for checkboxes.
+  CheckboxThemeData? get checkboxTheme => Theme.of(this).checkboxTheme;
+
+  /// Retrieves the [ChipThemeData] for chips.
+  ChipThemeData? get chipTheme => Theme.of(this).chipTheme;
+
+  /// Retrieves the [DataTableThemeData] for data tables.
+  DataTableThemeData? get dataTableTheme => Theme.of(this).dataTableTheme;
+
+  /// Retrieves the [DatePickerThemeData] for date pickers.
+  DatePickerThemeData? get datePickerTheme => Theme.of(this).datePickerTheme;
+
+  /// Retrieves the [DialogThemeData] for dialogs.
+  DialogThemeData? get dialogTheme => Theme.of(this).dialogTheme;
+
+  /// Retrieves the [DividerThemeData] for dividers.
+  DividerThemeData? get dividerTheme => Theme.of(this).dividerTheme;
+
+  /// Retrieves the [DrawerThemeData] for drawers.
+  DrawerThemeData? get drawerTheme => Theme.of(this).drawerTheme;
+
+  /// Retrieves the [DropdownMenuThemeData] for dropdown menus.
+  DropdownMenuThemeData? get dropdownMenuTheme =>
+      Theme.of(this).dropdownMenuTheme;
+
+  /// Retrieves the [ElevatedButtonThemeData] for elevated buttons.
+  ElevatedButtonThemeData? get elevatedButtonTheme =>
+      Theme.of(this).elevatedButtonTheme;
+
+  /// Retrieves the [ExpansionTileThemeData] for expansion tiles.
+  ExpansionTileThemeData? get expansionTileTheme =>
+      Theme.of(this).expansionTileTheme;
+
+  /// Retrieves the [FilledButtonThemeData] for filled buttons.
+  FilledButtonThemeData? get filledButtonTheme =>
+      Theme.of(this).filledButtonTheme;
+
+  /// Retrieves the [FloatingActionButtonThemeData] for floating action buttons.
+  FloatingActionButtonThemeData? get floatingActionButtonTheme =>
+      Theme.of(this).floatingActionButtonTheme;
+
+  /// Retrieves the [IconButtonThemeData] for icon buttons.
+  IconButtonThemeData? get iconButtonTheme => Theme.of(this).iconButtonTheme;
+
+  /// Retrieves the [ListTileThemeData] for list tiles.
+  ListTileThemeData? get listTileTheme => Theme.of(this).listTileTheme;
+
+  /// Retrieves the [MenuBarThemeData] for menu bars.
+  MenuBarThemeData? get menuBarTheme => Theme.of(this).menuBarTheme;
+
+  /// Retrieves the [MenuButtonThemeData] for menu buttons.
+  MenuButtonThemeData? get menuButtonTheme => Theme.of(this).menuButtonTheme;
+
+  /// Retrieves the [MenuThemeData] for menus.
+  MenuThemeData? get menuTheme => Theme.of(this).menuTheme;
+
+  /// Retrieves the [NavigationBarThemeData] for navigation bars.
+  NavigationBarThemeData? get navigationBarTheme =>
+      Theme.of(this).navigationBarTheme;
+
+  /// Retrieves the [NavigationDrawerThemeData] for navigation drawers.
+  NavigationDrawerThemeData? get navigationDrawerTheme =>
+      Theme.of(this).navigationDrawerTheme;
+
+  /// Retrieves the [NavigationRailThemeData] for navigation rails.
+  NavigationRailThemeData? get navigationRailTheme =>
+      Theme.of(this).navigationRailTheme;
+
+  /// Retrieves the [OutlinedButtonThemeData] for outlined buttons.
+  OutlinedButtonThemeData? get outlinedButtonTheme =>
+      Theme.of(this).outlinedButtonTheme;
+
+  /// Retrieves the [PopupMenuThemeData] for popup menus.
+  PopupMenuThemeData? get popupMenuTheme => Theme.of(this).popupMenuTheme;
+
+  /// Retrieves the [ProgressIndicatorThemeData] for progress indicators.
+  ProgressIndicatorThemeData? get progressIndicatorTheme =>
+      Theme.of(this).progressIndicatorTheme;
+
+  /// Retrieves the [RadioThemeData] for radio buttons.
+  RadioThemeData? get radioTheme => Theme.of(this).radioTheme;
+
+  /// Retrieves the [SearchBarThemeData] for search bars.
+  SearchBarThemeData? get searchBarTheme => Theme.of(this).searchBarTheme;
+
+  /// Retrieves the [SearchViewThemeData] for search views.
+  SearchViewThemeData? get searchViewTheme => Theme.of(this).searchViewTheme;
+
+  /// Retrieves the [SegmentedButtonThemeData] for segmented buttons.
+  SegmentedButtonThemeData? get segmentedButtonTheme =>
+      Theme.of(this).segmentedButtonTheme;
+
+  /// Retrieves the [SliderThemeData] for sliders.
+  SliderThemeData? get sliderTheme => Theme.of(this).sliderTheme;
+
+  /// Retrieves the [SnackBarThemeData] for snack bars.
+  SnackBarThemeData? get snackBarTheme => Theme.of(this).snackBarTheme;
+
+  /// Retrieves the [SwitchThemeData] for switches.
+  SwitchThemeData? get switchTheme => Theme.of(this).switchTheme;
+
+  /// Retrieves the [TextButtonThemeData] for text buttons.
+  TextButtonThemeData? get textButtonTheme => Theme.of(this).textButtonTheme;
+
+  /// Retrieves the [TextSelectionThemeData] for text selection.
+  TextSelectionThemeData? get textSelectionTheme =>
+      Theme.of(this).textSelectionTheme;
+
+  /// Retrieves the [TimePickerThemeData] for time pickers.
+  TimePickerThemeData? get timePickerTheme => Theme.of(this).timePickerTheme;
+
+  /// Retrieves the [ToggleButtonsThemeData] for toggle buttons.
+  ToggleButtonsThemeData? get toggleButtonsTheme =>
+      Theme.of(this).toggleButtonsTheme;
+
+  /// Retrieves the [TooltipThemeData] for tooltips.
+  TooltipThemeData? get tooltipTheme => Theme.of(this).tooltipTheme;
+
+  /// Retrieves the primary [IconThemeData] for this theme.
+  IconThemeData? get primaryIconTheme => Theme.of(this).primaryIconTheme;
 }

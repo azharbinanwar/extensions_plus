@@ -1,4 +1,4 @@
-part of 'build_context_extension.dart';
+part of '../../extensions_plus.dart';
 
 /// Extension on [BuildContext] to provide responsive design utilities and device information.
 ///

@@ -1,4 +1,4 @@
-part of 'build_context_extension.dart';
+part of '../../extensions_plus.dart';
 
 /// Extensions to show bottom sheets easily from the `BuildContext`.
 extension OverlayUtilitiesBuildContext on BuildContext {

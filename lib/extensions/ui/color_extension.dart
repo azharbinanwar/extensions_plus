@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '../../extensions_plus.dart';
 
 /// Extension on [Color] to provide advanced color manipulation methods
 extension ColorExtension on Color {

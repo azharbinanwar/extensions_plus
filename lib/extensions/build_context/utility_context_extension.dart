@@ -1,4 +1,4 @@
-part of 'build_context_extension.dart';
+part of '../../extensions_plus.dart';
 
 /// Utility extensions for common `BuildContext` actions.
 extension UtilityContextExtension on BuildContext {

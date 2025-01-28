@@ -1,3 +1,5 @@
+part of '../../extensions_plus.dart';
+
 extension MapExtension<K, V> on Map<K, V> {
   /// Groups the values in the map by multiple keys.
   ///

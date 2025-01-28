@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:extensions_plus/extensions/collections/list_extension.dart';
+import 'package:extensions_plus/extensions_plus.dart';
 
 class ListExtensionPage extends StatefulWidget {
   const ListExtensionPage({super.key});
