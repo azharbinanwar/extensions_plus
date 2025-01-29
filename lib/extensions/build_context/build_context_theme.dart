@@ -1,5 +1,10 @@
 part of '../../extensions_plus.dart';
 
+/// Extension on [BuildContext] to provide theme-related utilities.
+///
+/// This extension provides convenient methods and getters for accessing various
+/// theme properties, including typography, iconography, colors, and component themes
+/// in Flutter applications.
 extension BuildContextTheme on BuildContext {
   /// TYPOGRAPHY & ICONOGRAPHY
 
@@ -64,8 +69,10 @@ extension BuildContextTheme on BuildContext {
   /// COLORS
   ThemeData get theme => Theme.of(this);
 
+  /// Icon Theme
   IconThemeData get iconTheme => Theme.of(this).iconTheme;
 
+  /// Brightness
   Brightness get brightness => Theme.of(this).brightness;
 
   /// Primary Colors
@@ -224,6 +231,7 @@ extension BuildContextTheme on BuildContext {
   /// AppBar Theme
   AppBarTheme get appBarTheme => Theme.of(this).appBarTheme;
 
+  /// Access the app bar color of the current theme.
   Color get appBarColor => Theme.of(this).appBarTheme.backgroundColor!;
 
   /// Icon Theme

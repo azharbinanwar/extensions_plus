@@ -132,8 +132,11 @@ class _StringExtensionPageState extends State<StringExtensionPage> {
             SizedBox(height: 16),
             Text(
               "Result:",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-            ),
+              style: context.titleSmall,
+            ).fontSize(30),
+            'Capitalize'.headlineLarge(context).textColor(context.primary),
+            'Good day'.fontSize(40),
+            'Good day'.headlineLarge(context),
             Container(
               padding: EdgeInsets.all(12.0),
               width: double.infinity,
