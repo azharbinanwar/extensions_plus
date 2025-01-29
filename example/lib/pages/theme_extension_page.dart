@@ -280,7 +280,6 @@ class ThemeExtensionPage extends StatelessWidget {
     if (context.isMobile) return 'Mobile';
     if (context.isSmallTablet) return 'Small Tablet';
     if (context.isTablet) return 'Tablet';
-    if (context.isSmallDesktop) return 'Small Desktop';
     if (context.isDesktop) return 'Desktop';
     return 'Large Desktop';
   }

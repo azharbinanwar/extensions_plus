@@ -47,13 +47,8 @@ extension DeviceContextExtension on BuildContext {
   bool get isTablet =>
       width > kSmallTabletBreakpoint && width <= kTabletBreakpoint;
 
-  /// Returns true if screen width is > 768.0 and <= 1024.0
-  bool get isSmallDesktop =>
-      width > kTabletBreakpoint && width <= kDesktopBreakpoint;
-
   /// Returns true if screen width is > 1024.0 and <= 1440.0
-  bool get isDesktop =>
-      width > kDesktopBreakpoint && width <= kLargeDesktopBreakpoint;
+  bool get isDesktop => width > kSmallTabletBreakpoint;
 
   /// Returns true if screen width is > 1440.0
   bool get isLargeDesktop => width > kLargeDesktopBreakpoint;

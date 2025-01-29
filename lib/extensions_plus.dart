@@ -5,7 +5,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
+import 'package:intl/intl.dart' as intl;
 
 // BuildContext
 part 'extensions/build_context/build_context_theme.dart';
@@ -25,8 +25,12 @@ part 'extensions/ui/color_extension.dart';
 
 part 'extensions/ui/widget_extension.dart';
 
+part 'extensions/ui/text_style_extension.dart';
+
 // data types
 part 'extensions/data_types/string_extension.dart';
+
+part 'extensions/data_types/string_text_style_extension.dart';
 
 part 'extensions/data_types/num_extension.dart';
 

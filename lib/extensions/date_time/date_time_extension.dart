@@ -7,7 +7,7 @@ extension DateTimeExtension on DateTime {
   /// [locale] Optional locale for formatting
   /// [Returns] Formatted date string
   String format({String format = 'dd-MM-yyyy', String? locale}) =>
-      DateFormat(format, locale).format(this);
+      intl.DateFormat(format, locale).format(this);
 
   /// Check if the date is today
   ///
@@ -120,11 +120,11 @@ extension DateTimeExtension on DateTime {
   ///
   /// [locale] Optional locale for formatting
   /// [Returns] Day name string
-  String dayName({String? locale}) => DateFormat('EEEE', locale).format(this);
+  String dayName({String? locale}) => intl.DateFormat('EEEE', locale).format(this);
 
   /// Get month name
   ///
   /// [locale] Optional locale for formatting
   /// [Returns] Month name string
-  String monthName({String? locale}) => DateFormat('MMMM', locale).format(this);
+  String monthName({String? locale}) => intl.DateFormat('MMMM', locale).format(this);
 }

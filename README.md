@@ -77,8 +77,7 @@ The `DeviceContextExtension` on `BuildContext` provides a comprehensive set of u
     - Mobile: `<= 480.0`
     - Small Tablet: `> 480.0` and `<= 600.0`
     - Tablet: `> 600.0` and `<= 768.0`
-    - Small Desktop: `> 768.0` and `<= 1024.0`
-    - Desktop: `> 1024.0` and `<= 1440.0`
+    - Desktop: `> 768.0`
     - Large Desktop: `> 1440.0`
 
 - **Media Query Utilities**:
