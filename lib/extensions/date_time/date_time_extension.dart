@@ -120,11 +120,13 @@ extension DateTimeExtension on DateTime {
   ///
   /// [locale] Optional locale for formatting
   /// [Returns] Day name string
-  String dayName({String? locale}) => intl.DateFormat('EEEE', locale).format(this);
+  String dayName({String? locale}) =>
+      intl.DateFormat('EEEE', locale).format(this);
 
   /// Get month name
   ///
   /// [locale] Optional locale for formatting
   /// [Returns] Month name string
-  String monthName({String? locale}) => intl.DateFormat('MMMM', locale).format(this);
+  String monthName({String? locale}) =>
+      intl.DateFormat('MMMM', locale).format(this);
 }
