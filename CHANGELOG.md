@@ -1,10 +1,10 @@
 ### 1.1.0
 
 - **Added**
-      - Complete Material Design theme property support in `BuildContextTheme` including:
-          - General Configuration (platform, visual density, adaptations, extensions, input decoration, page transitions, scrollbar theme, tap target size, splash factory)
-          - Color System (canvas, dialog, disabled, divider, focus, highlight, hint, hover, indicator, shadow, splash, unselected widget colors)
-          - Component Themes (app bar, navigation, buttons, forms, menus, selection, progress indicators, search, tooltips)
+    - Complete Material Design theme property support in `BuildContextTheme` including:
+        - General Configuration (platform, visual density, adaptations, extensions, input decoration, page transitions, scrollbar theme, tap target size, splash factory)
+        - Color System (canvas, dialog, disabled, divider, focus, highlight, hint, hover, indicator, shadow, splash, unselected widget colors)
+        - Component Themes (app bar, navigation, buttons, forms, menus, selection, progress indicators, search, tooltips)
 
 - **Changed**
     - Restructured extension files to use the main library file for parts
