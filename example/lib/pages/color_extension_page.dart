@@ -13,47 +13,58 @@ class ColorExtensionPage extends StatelessWidget {
     final List<Color> color1Shades = [color1, ...color1.shades];
     final List<Color> color2Shades = [color2, ...color2.shades];
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Color Shades and Manipulation'),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            // Displaying Color Manipulations with Text Labels
-            buildColorRow(
-              context,
-              color1,
-              [
-                'Base Color',
-                'Brightness +0.2',
-                'Brightness +0.9 & Darken',
-              ],
-              [
-                color1,
-                color1.brightness(1.2),
-                color1.brightness(0.9).darken(),
-              ],
-            ),
-            buildColorRow(
-              context,
-              color2,
-              [
-                'Base Color',
-                'Inverted Color',
-                'Saturation - 0.5',
-              ],
-              [
-                color2,
-                color2.invert,
-                color2.saturation(0.5),
-              ],
-            ),
-            buildColorShades(color1Shades, 'Color 1 Shades'),
-            buildColorShades(color2Shades, 'Color 2 Shades'),
-          ],
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Image.network(
+            'https://images.unsplash.com/photo-1568801556940-e5b3a55fa6ea',
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            title: Text('Color Shades and Manipulation'),
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                // Displaying Color Manipulations with Text Labels
+                buildColorRow(
+                  context,
+                  color1,
+                  [
+                    'Base Color',
+                    'Brightness +0.2',
+                    'Brightness +0.9 & Darken',
+                  ],
+                  [
+                    color1,
+                    color1.brightness(1.2),
+                    color1.brightness(0.9).darken(),
+                  ],
+                ),
+                buildColorRow(
+                  context,
+                  color2,
+                  [
+                    'Base Color',
+                    'Inverted Color',
+                    'Saturation - 0.5',
+                  ],
+                  [
+                    color2,
+                    color2.invert,
+                    color2.saturation(0.5),
+                  ],
+                ),
+                buildColorShades(color1Shades, 'Color 1 Shades'),
+                buildColorShades(color2Shades, 'Color 2 Shades'),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 

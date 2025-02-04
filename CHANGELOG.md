@@ -1,3 +1,14 @@
+### 1.3.0
+- **Features**
+      - Added comprehensive UI demo for TextStyle extension
+      - Enhanced documentation with practical examples
+      - Expanded text style manipulation methods
+
+- **Changes**
+    - Refactored text style extension methods
+    - Improved text style chaining for better readability
+    - Updated text style demo with more examples
+
 ### 1.2.0
 - **Added**
     - Comprehensive text styling extensions with Material Design support:

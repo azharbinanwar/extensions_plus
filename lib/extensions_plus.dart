@@ -27,6 +27,8 @@ part 'extensions/ui/widget_extension.dart';
 
 part 'extensions/ui/text_style_extension.dart';
 
+part 'extensions/text_style/text_style_extensions.dart';
+
 // data types
 part 'extensions/data_types/string_extension.dart';
 
