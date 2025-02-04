@@ -5,6 +5,7 @@ import 'package:example/pages/list_extension_page.dart';
 import 'package:example/pages/map_extension_page.dart';
 import 'package:example/pages/num_extension_demo_page.dart';
 import 'package:example/pages/string_extension_page.dart';
+import 'package:example/pages/text_style_demo_page.dart';
 import 'package:example/pages/theme_extension_page.dart';
 import 'package:example/pages/widget_demo_page.dart';
 import 'package:extensions_plus/extensions_plus.dart';
@@ -75,6 +76,10 @@ class ExtensionUsagePage extends StatelessWidget {
             ListTile(
               title: const Text('String extension'),
               onTap: () => context.push(StringExtensionPage()),
+            ),
+            ListTile(
+              title: const Text('Text Style extension'),
+              onTap: () => context.push(TextStyleDemoPage()),
             ),
           ],
         ),
