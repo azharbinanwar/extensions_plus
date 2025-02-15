@@ -111,12 +111,17 @@ extension OverlayUtilitiesBuildContext on BuildContext {
     required Widget child,
     EdgeInsetsGeometry padding = const EdgeInsets.all(16.0),
   }) {
-    List<Widget> userActions = actions.length <= 1
-        ? actions
-        : actions
-            .map((e) => Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4.0), child: e))
-            .toList();
+    List<Widget> userActions =
+        actions.length <= 1
+            ? actions
+            : actions
+                .map(
+                  (e) => Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: e,
+                  ),
+                )
+                .toList();
     return showGeneralDialog(
       context: this,
       barrierColor: barrierColor ?? Colors.transparent,
@@ -147,7 +152,7 @@ extension OverlayUtilitiesBuildContext on BuildContext {
                           splashRadius: 20.0,
                           icon: Icon(Icons.close, color: context.primary),
                           onPressed: Navigator.of(context).pop,
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -160,9 +165,9 @@ extension OverlayUtilitiesBuildContext on BuildContext {
                         if (userActions.isNotEmpty) ...{
                           const SizedBox(height: 16.0),
                           Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: userActions)
-                              .fit()
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: userActions,
+                          ).fit(),
                         },
                       ],
                     ),

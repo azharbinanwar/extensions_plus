@@ -278,7 +278,6 @@ class ThemeExtensionPage extends StatelessWidget {
 
   String _getDeviceType(BuildContext context) {
     if (context.isMobile) return 'Mobile';
-    if (context.isSmallTablet) return 'Small Tablet';
     if (context.isTablet) return 'Tablet';
     if (context.isDesktop) return 'Desktop';
     return 'Large Desktop';

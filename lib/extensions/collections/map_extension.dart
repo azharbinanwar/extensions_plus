@@ -89,8 +89,10 @@ extension MapExtension<K, V> on Map<K, V> {
   /// ```
   String toQueryParams() {
     return entries
-        .map((entry) =>
-            '${Uri.encodeComponent(entry.key.toString())}=${Uri.encodeComponent(entry.value.toString())}')
+        .map(
+          (entry) =>
+              '${Uri.encodeComponent(entry.key.toString())}=${Uri.encodeComponent(entry.value.toString())}',
+        )
         .join('&');
   }
 }

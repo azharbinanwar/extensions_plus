@@ -246,9 +246,6 @@ extension BuildContextTheme on BuildContext {
   /// Access the card color of the current theme.
   Color get cardColor => Theme.of(this).cardColor;
 
-  /// Access the dialog background color of the current theme.
-  Color get dialogBackgroundColor => Theme.of(this).dialogBackgroundColor;
-
   /// Access the disabled color of the current theme.
   Color get disabledColor => Theme.of(this).disabledColor;
 

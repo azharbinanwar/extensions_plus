@@ -1,10 +1,10 @@
 name: extensions_plus
 description: "This package provides a powerful collection of extensions for Dart's core types, enabling cleaner and more expressive code."
-version: 1.3.0
+version: 1.4.1
 homepage: "https://github.com/azharbinanwar/extensions_plus"
 
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.7.0
   flutter: ">=1.17.0"
 
 dependencies:

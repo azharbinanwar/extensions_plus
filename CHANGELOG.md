@@ -1,8 +1,31 @@
+### 1.4.1
+
+- **Removed:**
+    - `dialogBackgroundColor` extension method from `BuildContext`.
+
+- **Reason for Removal:**
+    - The property `Theme.of(context).dialogBackgroundColor` has been **deprecated** in Flutter.
+      3.29.0 || Dart 3.7.0
+
+### 1.4.0
+
+- **Text Extensions:**
+    - Renamed `align` → `textAlign` for better clarity.
+    - Renamed `decoration` → `textDecoration` to avoid conflict with widget extension.
+
+- **Screen Breakpoints:**
+    - Removed `isSmallTablet` and `isSmallDesktop` to simplify screen size logic.
+    - Updated `responsivePadding` method to match new breakpoints.
+
+- **Dart Version Upgrade:**
+    - Upgraded minimum Dart SDK version to `3.7.0` for improved performance and stability.
+
 ### 1.3.0
+
 - **Features**
-      - Added comprehensive UI demo for TextStyle extension
-      - Enhanced documentation with practical examples
-      - Expanded text style manipulation methods
+  - Added comprehensive UI demo for TextStyle extension
+  - Enhanced documentation with practical examples
+  - Expanded text style manipulation methods
 
 - **Changes**
     - Refactored text style extension methods
@@ -10,6 +33,7 @@
     - Updated text style demo with more examples
 
 ### 1.2.0
+
 - **Added**
     - Comprehensive text styling extensions with Material Design support:
         - Theme-based text styles (headline, title, body, label variants)
@@ -37,27 +61,32 @@
 
 - **Added**
     - Complete Material Design theme property support in `BuildContextTheme` including:
-        - General Configuration (platform, visual density, adaptations, extensions, input decoration, page transitions, scrollbar theme, tap target size, splash factory)
-        - Color System (canvas, dialog, disabled, divider, focus, highlight, hint, hover, indicator, shadow, splash, unselected widget colors)
-        - Component Themes (app bar, navigation, buttons, forms, menus, selection, progress indicators, search, tooltips)
+        - General Configuration (platform, visual density, adaptations, extensions, input
+          decoration, page transitions, scrollbar theme, tap target size, splash factory)
+        - Color System (canvas, dialog, disabled, divider, focus, highlight, hint, hover, indicator,
+          shadow, splash, unselected widget colors)
+        - Component Themes (app bar, navigation, buttons, forms, menus, selection, progress
+          indicators, search, tooltips)
 
 - **Changed**
     - Restructured extension files to use the main library file for parts
     - Removed deprecated theme properties
     - Organized theme properties into logical groupings
-    - **Refactor**: Removed `?` from non-nullable theme variables for better type safety and consistency.
+    - **Refactor**: Removed `?` from non-nullable theme variables for better type safety and
+      consistency.
 
 - **Breaking Changes**
     - Extension files now use `part of` with the main library file
     - Removed support for deprecated theme properties
 
-
 ### 1.0.0
+
 - **Features**
     - Introduced a comprehensive set of Dart extensions to simplify development:
         - **Widget Extension**: Utilities for UI-related tasks.
         - **String Extension**: Enhanced string manipulation methods.
-        - **num, List, and Map Extensions**: Added powerful utility functions for numbers, lists, and maps.
+        - **num, List, and Map Extensions**: Added powerful utility functions for numbers, lists,
+          and maps.
         - **DateTime Extension**: Simplified operations for date and time handling.
         - **Color Extension**: Convenient utilities for color manipulation.
         - **BuildContext Extension**: Streamlined access to Flutter context.

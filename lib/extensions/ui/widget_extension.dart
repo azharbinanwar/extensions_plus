@@ -15,27 +15,25 @@ extension WidgetExtension on Widget {
     double top = 0.0,
     double right = 0.0,
     double bottom = 0.0,
-  }) =>
-      Positioned.fill(
-        left: left,
-        top: top,
-        right: right,
-        bottom: bottom,
-        child: this,
-      );
+  }) => Positioned.fill(
+    left: left,
+    top: top,
+    right: right,
+    bottom: bottom,
+    child: this,
+  );
 
   /// Adds a tap gesture to the widget.
   Widget onTap(VoidCallback? onTap) =>
       GestureDetector(onTap: onTap, child: this);
 
   /// Adds symmetric padding to the widget.
-  Widget paddingSymmetric({
-    double horizontal = 0.0,
-    double vertical = 0.0,
-  }) =>
+  Widget paddingSymmetric({double horizontal = 0.0, double vertical = 0.0}) =>
       Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
+        padding: EdgeInsets.symmetric(
+          horizontal: horizontal,
+          vertical: vertical,
+        ),
         child: this,
       );
 
@@ -45,12 +43,15 @@ extension WidgetExtension on Widget {
     double right = 0.0,
     double top = 0.0,
     double bottom = 0.0,
-  }) =>
-      Padding(
-        padding:
-            EdgeInsets.only(left: left, right: right, top: top, bottom: bottom),
-        child: this,
-      );
+  }) => Padding(
+    padding: EdgeInsets.only(
+      left: left,
+      right: right,
+      top: top,
+      bottom: bottom,
+    ),
+    child: this,
+  );
 
   /// Adds padding from left, top, right, and bottom.
   Widget paddingFromLTRB(
@@ -58,11 +59,10 @@ extension WidgetExtension on Widget {
     double right,
     double top,
     double bottom,
-  ) =>
-      Padding(
-        padding: EdgeInsets.fromLTRB(left, top, right, bottom),
-        child: this,
-      );
+  ) => Padding(
+    padding: EdgeInsets.fromLTRB(left, top, right, bottom),
+    child: this,
+  );
 
   /// Adds margin to all sides of the widget.
   Widget marginAll(double value) =>
@@ -72,12 +72,10 @@ extension WidgetExtension on Widget {
   Widget marginSymmetric({
     required double horizontal,
     required double vertical,
-  }) =>
-      Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
-        child: this,
-      );
+  }) => Padding(
+    padding: EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
+    child: this,
+  );
 
   /// Adds margin to specific sides of the widget.
   Widget marginOnly({
@@ -85,12 +83,15 @@ extension WidgetExtension on Widget {
     required double right,
     required double top,
     required double bottom,
-  }) =>
-      Padding(
-        padding:
-            EdgeInsets.only(left: left, right: right, top: top, bottom: bottom),
-        child: this,
-      );
+  }) => Padding(
+    padding: EdgeInsets.only(
+      left: left,
+      right: right,
+      top: top,
+      bottom: bottom,
+    ),
+    child: this,
+  );
 
   /// Adds margin from left, top, right, and bottom.
   Widget marginFromLTRB({
@@ -98,11 +99,10 @@ extension WidgetExtension on Widget {
     required double right,
     required double top,
     required double bottom,
-  }) =>
-      Padding(
-        padding: EdgeInsets.fromLTRB(left, top, right, bottom),
-        child: this,
-      );
+  }) => Padding(
+    padding: EdgeInsets.fromLTRB(left, top, right, bottom),
+    child: this,
+  );
 
   /// Centers the widget.
   Widget center() => Center(child: this);
@@ -114,14 +114,11 @@ extension WidgetExtension on Widget {
   Widget square(double value) => SizedBox.square(dimension: value, child: this);
 
   /// Wraps the widget with a `Material` widget.
-  Widget materialized({
-    BorderRadius? borderRadius,
-  }) =>
-      Material(
-        borderRadius: borderRadius,
-        color: Colors.transparent,
-        child: this,
-      );
+  Widget materialized({BorderRadius? borderRadius}) => Material(
+    borderRadius: borderRadius,
+    color: Colors.transparent,
+    child: this,
+  );
 
   /// Wraps the widget with a `SafeArea`.
   Widget safeArea({
@@ -130,13 +127,7 @@ extension WidgetExtension on Widget {
     bool right = true,
     bool bottom = true,
   }) =>
-      SafeArea(
-        left: left,
-        top: top,
-        right: right,
-        bottom: bottom,
-        child: this,
-      );
+      SafeArea(left: left, top: top, right: right, bottom: bottom, child: this);
 
   /// Shows the widget if the condition is true.
   Widget showIf(bool value) => value ? this : const SizedBox.shrink();
@@ -213,15 +204,18 @@ extension WidgetExtension on Widget {
   }
 
   /// Updates the status bar color according to the screens and theme.
-  Widget annotateRegion(BuildContext context,
-      {Color? statusBarColor,
-      Brightness? statusBarIconBrightness,
-      Brightness? statusBarBrightness}) {
+  Widget annotateRegion(
+    BuildContext context, {
+    Color? statusBarColor,
+    Brightness? statusBarIconBrightness,
+    Brightness? statusBarBrightness,
+  }) {
     Brightness brightness = Theme.of(context).brightness;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
         statusBarColor: statusBarColor ?? context.appBarColor,
-        statusBarIconBrightness: statusBarIconBrightness ??
+        statusBarIconBrightness:
+            statusBarIconBrightness ??
             (brightness == Brightness.light
                 ? Brightness.dark
                 : Brightness.light),
@@ -232,11 +226,12 @@ extension WidgetExtension on Widget {
   }
 
   /// Converts the widget to a scrollable list.
-  Widget toScrollableList(
-      {int itemCount = 10,
-      Axis scrollDirection = Axis.vertical,
-      EdgeInsets padding = EdgeInsets.zero,
-      Widget? separator}) {
+  Widget toScrollableList({
+    int itemCount = 10,
+    Axis scrollDirection = Axis.vertical,
+    EdgeInsets padding = EdgeInsets.zero,
+    Widget? separator,
+  }) {
     List<Widget> items = List.generate(itemCount, (index) => this);
     if (separator != null) {
       items = items.expand((element) => [element, separator]).toList();
@@ -245,9 +240,10 @@ extension WidgetExtension on Widget {
     return SingleChildScrollView(
       padding: padding,
       scrollDirection: scrollDirection,
-      child: scrollDirection == Axis.vertical
-          ? Column(children: items)
-          : Row(children: items),
+      child:
+          scrollDirection == Axis.vertical
+              ? Column(children: items)
+              : Row(children: items),
     );
   }
 
@@ -255,10 +251,10 @@ extension WidgetExtension on Widget {
   Widget toScrollableGrid({
     SliverGridDelegate gridDelegate =
         const SliverGridDelegateWithFixedCrossAxisCount(
-      crossAxisCount: 2,
-      crossAxisSpacing: 16.0,
-      mainAxisSpacing: 16.0,
-    ),
+          crossAxisCount: 2,
+          crossAxisSpacing: 16.0,
+          mainAxisSpacing: 16.0,
+        ),
     EdgeInsets padding = EdgeInsets.zero,
     int itemCount = 10,
     Axis scrollDirection = Axis.vertical,
@@ -275,9 +271,10 @@ extension WidgetExtension on Widget {
   }
 
   /// Makes the widget scrollable.
-  Widget scrollable(
-      {Axis scrollDirection = Axis.vertical,
-      EdgeInsets padding = EdgeInsets.zero}) {
+  Widget scrollable({
+    Axis scrollDirection = Axis.vertical,
+    EdgeInsets padding = EdgeInsets.zero,
+  }) {
     return SingleChildScrollView(
       scrollDirection: scrollDirection,
       padding: padding,
@@ -290,13 +287,12 @@ extension WidgetExtension on Widget {
     double elevation = 4.0,
     Color? shadowColor,
     BorderRadiusGeometry? borderRadius,
-  }) =>
-      Material(
-        elevation: elevation,
-        shadowColor: shadowColor,
-        borderRadius: borderRadius,
-        child: this,
-      );
+  }) => Material(
+    elevation: elevation,
+    shadowColor: shadowColor,
+    borderRadius: borderRadius,
+    child: this,
+  );
 
   /// Adds circular border radius to the widget.
   Widget circular(double radius) =>
@@ -317,28 +313,26 @@ extension WidgetExtension on Widget {
     bool maintainState = false,
     bool maintainAnimation = false,
     bool maintainSize = false,
-  }) =>
-      Visibility(
-        visible: visible,
-        maintainState: maintainState,
-        maintainAnimation: maintainAnimation,
-        maintainSize: maintainSize,
-        child: this,
-      );
+  }) => Visibility(
+    visible: visible,
+    maintainState: maintainState,
+    maintainAnimation: maintainAnimation,
+    maintainSize: maintainSize,
+    child: this,
+  );
 
   /// Adds a tap ripple effect to the widget.
   Widget ripple({
     BorderRadius? borderRadius,
     Color? splashColor,
     Color? highlightColor,
-  }) =>
-      Material(
-        color: Colors.transparent,
-        child: InkWell(
-          borderRadius: borderRadius,
-          splashColor: splashColor,
-          highlightColor: highlightColor,
-          child: this,
-        ),
-      );
+  }) => Material(
+    color: Colors.transparent,
+    child: InkWell(
+      borderRadius: borderRadius,
+      splashColor: splashColor,
+      highlightColor: highlightColor,
+      child: this,
+    ),
+  );
 }

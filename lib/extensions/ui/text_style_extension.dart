@@ -61,7 +61,8 @@ extension TextStyleExtension on Text {
   /// Applies the given [spacing] to the text's letter spacing.
   Text letterSpacing(double spacing) {
     return _copyWith(
-      style: style?.copyWith(letterSpacing: spacing) ??
+      style:
+          style?.copyWith(letterSpacing: spacing) ??
           TextStyle(letterSpacing: spacing),
     );
   }
@@ -76,7 +77,8 @@ extension TextStyleExtension on Text {
   /// Applies the given [decoration] to the text's decoration.
   Text decoration(TextDecoration decoration) {
     return _copyWith(
-      style: style?.copyWith(decoration: decoration) ??
+      style:
+          style?.copyWith(decoration: decoration) ??
           TextStyle(decoration: decoration),
     );
   }
@@ -150,7 +152,8 @@ extension TextStyleExtension on Text {
     List<FontVariation>? fontVariations,
   }) {
     return _copyWith(
-      style: style?.copyWith(
+      style:
+          style?.copyWith(
             color: color,
             fontSize: fontSize,
             fontWeight: fontWeight,
