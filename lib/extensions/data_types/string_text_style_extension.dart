@@ -10,9 +10,7 @@ extension StringTextStyleExtension on String {
   Text headlineLarge(BuildContext context, {Color? color}) {
     return Text(
       this,
-      style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-            color: color,
-          ),
+      style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: color),
     );
   }
 
@@ -25,9 +23,7 @@ extension StringTextStyleExtension on String {
   Text headlineMedium(BuildContext context, {Color? color}) {
     return Text(
       this,
-      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-            color: color,
-          ),
+      style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: color),
     );
   }
 
@@ -40,9 +36,7 @@ extension StringTextStyleExtension on String {
   Text headlineSmall(BuildContext context, {Color? color}) {
     return Text(
       this,
-      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-            color: color,
-          ),
+      style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: color),
     );
   }
 
@@ -55,9 +49,7 @@ extension StringTextStyleExtension on String {
   Text titleLarge(BuildContext context, {Color? color}) {
     return Text(
       this,
-      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            color: color,
-          ),
+      style: Theme.of(context).textTheme.titleLarge?.copyWith(color: color),
     );
   }
 
@@ -70,9 +62,7 @@ extension StringTextStyleExtension on String {
   Text titleMedium(BuildContext context, {Color? color}) {
     return Text(
       this,
-      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-            color: color,
-          ),
+      style: Theme.of(context).textTheme.titleMedium?.copyWith(color: color),
     );
   }
 
@@ -85,9 +75,7 @@ extension StringTextStyleExtension on String {
   Text titleSmall(BuildContext context, {Color? color}) {
     return Text(
       this,
-      style: Theme.of(context).textTheme.titleSmall?.copyWith(
-            color: color,
-          ),
+      style: Theme.of(context).textTheme.titleSmall?.copyWith(color: color),
     );
   }
 
@@ -100,9 +88,7 @@ extension StringTextStyleExtension on String {
   Text bodyLarge(BuildContext context, {Color? color}) {
     return Text(
       this,
-      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-            color: color,
-          ),
+      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: color),
     );
   }
 
@@ -115,9 +101,7 @@ extension StringTextStyleExtension on String {
   Text bodyMedium(BuildContext context, {Color? color}) {
     return Text(
       this,
-      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            color: color,
-          ),
+      style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: color),
     );
   }
 
@@ -130,9 +114,7 @@ extension StringTextStyleExtension on String {
   Text bodySmall(BuildContext context, {Color? color}) {
     return Text(
       this,
-      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: color,
-          ),
+      style: Theme.of(context).textTheme.bodySmall?.copyWith(color: color),
     );
   }
 
@@ -145,9 +127,7 @@ extension StringTextStyleExtension on String {
   Text labelLarge(BuildContext context, {Color? color}) {
     return Text(
       this,
-      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-            color: color,
-          ),
+      style: Theme.of(context).textTheme.labelLarge?.copyWith(color: color),
     );
   }
 
@@ -160,9 +140,7 @@ extension StringTextStyleExtension on String {
   Text labelMedium(BuildContext context, {Color? color}) {
     return Text(
       this,
-      style: Theme.of(context).textTheme.labelMedium?.copyWith(
-            color: color,
-          ),
+      style: Theme.of(context).textTheme.labelMedium?.copyWith(color: color),
     );
   }
 
@@ -175,9 +153,7 @@ extension StringTextStyleExtension on String {
   Text labelSmall(BuildContext context, {Color? color}) {
     return Text(
       this,
-      style: Theme.of(context).textTheme.labelSmall?.copyWith(
-            color: color,
-          ),
+      style: Theme.of(context).textTheme.labelSmall?.copyWith(color: color),
     );
   }
 
@@ -261,10 +237,7 @@ extension StringTextStyleExtension on String {
   /// Example:
   Text primaryColor(BuildContext context, {TextStyle? textStyle}) {
     TextStyle? baseStyle = textStyle ?? TextStyle();
-    return Text(
-      this,
-      style: baseStyle.copyWith(color: context.primary),
-    );
+    return Text(this, style: baseStyle.copyWith(color: context.primary));
   }
 
   /// Applies the secondary color from the theme to the text.
@@ -275,14 +248,8 @@ extension StringTextStyleExtension on String {
   /// Returns a [Text] widget with the secondary color applied.
   ///
   /// Example:
-  Text accentColor(
-    BuildContext context, {
-    TextStyle? textStyle,
-  }) {
-    return Text(
-      this,
-      style: TextStyle(color: context.secondary),
-    );
+  Text accentColor(BuildContext context, {TextStyle? textStyle}) {
+    return Text(this, style: TextStyle(color: context.secondary));
   }
 
   /// Applies the error color from the theme to the text.
@@ -293,10 +260,7 @@ extension StringTextStyleExtension on String {
   ///
   /// Example:
   Text errorColor(BuildContext context) {
-    return Text(
-      this,
-      style: TextStyle(color: context.error),
-    );
+    return Text(this, style: TextStyle(color: context.error));
   }
 
   // Commonly used style methods
@@ -373,13 +337,13 @@ extension StringTextStyleExtension on String {
   /// Returns a [Text] widget with the specified text decoration.
   ///
   /// Example:
-  Text decoration(TextDecoration decoration) {
+  Text textDecoration(TextDecoration decoration) {
     return _toText(style: TextStyle(decoration: decoration));
   }
 
   // Layout methods
   /// Sets the text alignment.
-  Text align(TextAlign align) => _toText(textAlign: align);
+  Text textAlign(TextAlign align) => _toText(textAlign: align);
 
   /// Sets the maximum number of lines.
   Text maxLines(int lines) => _toText(maxLines: lines);
@@ -501,19 +465,20 @@ extension StringTextStyleExtension on String {
   }
 
   /// this is a private method that converts a string to a Text widget
-  Text _toText(
-      {TextStyle? style,
-      TextAlign? textAlign,
-      TextDirection? textDirection,
-      bool? softWrap,
-      TextOverflow? overflow,
-      int? maxLines,
-      String? semanticsLabel,
-      TextWidthBasis? textWidthBasis,
-      TextHeightBehavior? textHeightBehavior,
-      StrutStyle? strutStyle,
-      Locale? locale,
-      Color? selectionColor}) {
+  Text _toText({
+    TextStyle? style,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    bool? softWrap,
+    TextOverflow? overflow,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    StrutStyle? strutStyle,
+    Locale? locale,
+    Color? selectionColor,
+  }) {
     return Text(
       this,
       style: style,

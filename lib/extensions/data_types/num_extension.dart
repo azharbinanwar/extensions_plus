@@ -183,8 +183,10 @@ extension NumericExtension on num {
     int decimals = 0,
   }) {
     var parts = toStringAsFixed(decimals).split('.');
-    parts[0] = parts[0].replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
-        (Match m) => '${m[1]}$thousandSeparator');
+    parts[0] = parts[0].replaceAllMapped(
+      RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+      (Match m) => '${m[1]}$thousandSeparator',
+    );
     return parts.join(decimalSeparator);
   }
 }

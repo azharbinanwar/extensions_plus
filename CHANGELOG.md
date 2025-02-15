@@ -1,3 +1,15 @@
+### 1.4.0
+- **Text Extensions:**
+    - Renamed `align` → `textAlign` for better clarity.
+    - Renamed `decoration` → `textDecoration` to avoid conflict with widget extension.
+
+- **Screen Breakpoints:**
+    - Removed `isSmallTablet` and `isSmallDesktop` to simplify screen size logic.
+    - Updated `responsivePadding` method to match new breakpoints.
+
+- **Dart Version Upgrade:**
+    - Upgraded minimum Dart SDK version to `3.7.0` for improved performance and stability.
+
 ### 1.3.0
 - **Features**
       - Added comprehensive UI demo for TextStyle extension
