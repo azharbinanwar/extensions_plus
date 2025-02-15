@@ -1,6 +1,6 @@
 name: extensions_plus
 description: "This package provides a powerful collection of extensions for Dart's core types, enabling cleaner and more expressive code."
-version: 1.4.0
+version: 1.4.1
 homepage: "https://github.com/azharbinanwar/extensions_plus"
 
 environment:
