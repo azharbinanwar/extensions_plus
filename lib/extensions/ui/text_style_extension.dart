@@ -75,7 +75,7 @@ extension TextStyleExtension on Text {
   }
 
   /// Applies the given [decoration] to the text's decoration.
-  Text decoration(TextDecoration decoration) {
+  Text textDecoration(TextDecoration decoration) {
     return _copyWith(
       style:
           style?.copyWith(decoration: decoration) ??
@@ -92,7 +92,7 @@ extension TextStyleExtension on Text {
   /// - `TextAlign.center`: Centers the text horizontally.
   /// - `TextAlign.right`: Aligns the text to the right.
   /// - `TextAlign.justify`: Justifies the text, spreading it to fill the width.
-  Text align(TextAlign align) => _copyWith(textAlign: align);
+  Text textAlign(TextAlign align) => _copyWith(textAlign: align);
 
   /// Sets the maximum number of lines for the text.
   ///
