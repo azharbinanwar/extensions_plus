@@ -1,3 +1,10 @@
+### 1.4.2
+
+- **Text Extensions:**
+    - Renamed `align` → `textAlign` for better clarity.
+    - Renamed `decoration` → `textDecoration` to avoid conflict with widget extension.
+
+
 ### 1.4.1
 
 - **Removed:**
