@@ -1,3 +1,19 @@
+### 1.4.3
+
+- **SDK Updates:**
+    - Updated SDK constraint to `^3.8.0` for Dart 3.8.1 compatibility.
+    - Updated `flutter_lints` to `^6.0.0`.
+
+- **Bug Fixes:**
+    - Fixed `responsiveConstrains` in `WidgetExtension` by explicitly typing `alignment`.
+    - Corrected `indicatorColor` getter in `BuildContextTheme` to use `tabBarTheme.indicatorColor`.
+    - Replaced deprecated `CardTheme` with `CardThemeData` in `BuildContextTheme`.
+
+- **Code Improvements:**
+    - Updated unused parameter syntax from `__` to `_` for Dart 3.8.1 compatibility.
+    - Removed unused variables in `OverlayUtilitiesBuildContext` and `WidgetExtension`.
+
+
 ### 1.4.2
 
 - **Text Extensions:**

@@ -186,7 +186,7 @@ extension WidgetExtension on Widget {
 
   /// Adds responsive constraints to the widget.
   Widget responsiveConstrains({
-    alignment = Alignment.topCenter,
+    Alignment alignment = Alignment.topCenter,
     double minWidth = 0.0,
     double maxWidth = 600.0,
     double minHeight = 0.0,
@@ -266,7 +266,7 @@ extension WidgetExtension on Widget {
       gridDelegate: gridDelegate,
       scrollDirection: scrollDirection,
       padding: padding,
-      itemBuilder: (_, __) => this,
+      itemBuilder: (_, _) => this,
     );
   }
 
