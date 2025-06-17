@@ -125,7 +125,7 @@ extension OverlayUtilitiesBuildContext on BuildContext {
     return showGeneralDialog(
       context: this,
       barrierColor: barrierColor ?? Colors.transparent,
-      pageBuilder: (BuildContext context, _, __) {
+      pageBuilder: (BuildContext context, _, _) {
         return ConstrainedBox(
           constraints: BoxConstraints(maxWidth: min(width * .9, 500.0)),
           child: ClipRRect(

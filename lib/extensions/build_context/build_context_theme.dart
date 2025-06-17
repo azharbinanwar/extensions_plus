@@ -265,7 +265,7 @@ extension BuildContextTheme on BuildContext {
   Color get hoverColor => Theme.of(this).hoverColor;
 
   /// Access the indicator color of the current theme.
-  Color get indicatorColor => Theme.of(this).indicatorColor;
+  Color? get indicatorColor => Theme.of(this).tabBarTheme.indicatorColor;
 
   /// Access the primary color of the current theme.
   Color get primaryColor => Theme.of(this).primaryColor;
@@ -315,7 +315,7 @@ extension BuildContextTheme on BuildContext {
   /// Retrieves the [ButtonThemeData] for buttons.
   ButtonThemeData get buttonTheme => Theme.of(this).buttonTheme;
 
-  /// Retrieves the [CardTheme] for cards.
+  /// Retrieves the [CardThemeData] for cards.
   CardThemeData get cardTheme => Theme.of(this).cardTheme;
 
   /// Retrieves the [CheckboxThemeData] for checkboxes.
