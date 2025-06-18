@@ -61,7 +61,7 @@ extension ColorExtension on Color {
 
     return luminance > 0.5
         ? Colors
-            .black // Black for light backgrounds
+              .black // Black for light backgrounds
         : Colors.white; // White for dark backgrounds
   }
 

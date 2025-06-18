@@ -240,10 +240,9 @@ extension WidgetExtension on Widget {
     return SingleChildScrollView(
       padding: padding,
       scrollDirection: scrollDirection,
-      child:
-          scrollDirection == Axis.vertical
-              ? Column(children: items)
-              : Row(children: items),
+      child: scrollDirection == Axis.vertical
+          ? Column(children: items)
+          : Row(children: items),
     );
   }
 
