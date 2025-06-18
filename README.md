@@ -139,27 +139,27 @@ The `NavigationExtension` enhances the `BuildContext` in Flutter, providing a ri
 ## Features
 
 - **Shorthand Access**
-    - Quickly access the current `NavigatorState` using `context.navigator`.
+  - Quickly access the current `NavigatorState` using `context.navigator`.
 
 - **Flexible Navigation**
-    - Push new routes with full control over `MaterialPageRoute` properties using `context.push()` or `context.pushAndRemoveUntil()`.
+  - Push new routes with full control over `MaterialPageRoute` properties using `context.pushPlus()` or `context.pushAndRemoveUntil()`.
 
 - **Custom Transitions**
-    - Smooth fade transitions with `context.pushWithFade()`.
-    - Directional slide transitions with `context.pushWithSlide()`.
+  - Smooth fade transitions with `context.pushWithFade()`.
+  - Directional slide transitions with `context.pushWithSlide()`.
 
 - **Route Management**
-    - Remove specific or multiple routes using `context.popUntilFirst()` and `context.popTimes()`.
-    - Check if a specific route exists with `context.hasRoute()`.
+  - Remove specific or multiple routes using `context.goBackToFirst()` and `context.goBackTimes()`.
+  - Check if a specific route exists with `context.hasRoute()`.
 
 - **State Passing**
-    - Pass and retrieve data between routes using `context.popWithData()`.
+  - Pass and retrieve data between routes using `context.goBackWithData()`.
 
 ## Usage Examples
 
 ### Push a New Route
 ```dart
-context.push(
+context.pushPlus(
   HomePage(),
   fullscreenDialog: true,
   settings: RouteSettings(name: '/home'),
@@ -192,10 +192,10 @@ context.pushWithSlide(
 );
 ```
 
-### Pop with Data
+### Go Back with Data
 
 ```dart
-context.popWithData({'result':'success'};
+context.goBackWithData({'result': 'success'});
 ```
 
 ### Check if a Route Exists
@@ -206,23 +206,46 @@ if (context.hasRoute('/home')) {
 }
 ```
 
-### Pop Multiple Routes
+### Go Back Multiple Routes
 
 ```dart
-context.popTimes(2); // Pops two routes
+context.goBackTimes(2); // Goes back two routes
+```
+
+### Simple Navigation
+```dart
+context.goBack(); // Simple go back
+context.goBack('result'); // Go back with result
+
+// Check if can go back
+if (context.canGoBack) {
+  context.goBack();
+}
+```
+
+## Migration from v1.4.x to v1.5.0
+
+If you're upgrading from a previous version, update your method calls:
+
+```dart
+// Old (v1.4.x)           →  New (v1.5.0)
+context.push()            →  context.pushPlus()
+context.pop()             →  context.goBack()
+context.popWithData()     →  context.goBackWithData()
+context.popTimes()        →  context.goBackTimes()
+context.canPop            →  context.canGoBack
 ```
 
 ## Why Use NavigationExtension?
 
-- Simplifies navigation tasks with clean, reusable methods.
-- Reduces boilerplate code for custom transitions and complex navigation flows.
-- Enhances code readability and consistency.
+- **Conflict-free**: Works alongside popular packages like `go_router` without import conflicts.
+- **Intuitive naming**: Clear, descriptive method names that express intent.
+- **Simplifies navigation**: Reduces boilerplate code for custom transitions and complex navigation flows.
+- **Enhanced readability**: Consistent API that improves code maintainability.
 
+**Note:** This extension is designed to work seamlessly with `Navigator` in Flutter and supports both material and custom page transitions. All navigation methods are prefixed to avoid conflicts with other popular routing packages.
 
-**Note:** This extensions is designed to work seamlessly with `Navigator` in Flutter and supports
-both material and custom page transitions.
 ---
-
 
 # Theme
 

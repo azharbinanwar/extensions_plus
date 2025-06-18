@@ -140,7 +140,7 @@ class _ListExtensionPageState extends State<ListExtensionPage> {
   }
 
   Widget _buildFirstWhereSection() {
-    final firstUser = _users.firstWhereOrNull((u) => u['city'] == 'New York');
+    final firstUser = _users.findFirst((u) => u['city'] == 'New York');
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),

@@ -111,17 +111,16 @@ extension OverlayUtilitiesBuildContext on BuildContext {
     required Widget child,
     EdgeInsetsGeometry padding = const EdgeInsets.all(16.0),
   }) {
-    List<Widget> userActions =
-        actions.length <= 1
-            ? actions
-            : actions
-                .map(
-                  (e) => Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: e,
-                  ),
-                )
-                .toList();
+    List<Widget> userActions = actions.length <= 1
+        ? actions
+        : actions
+              .map(
+                (e) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                  child: e,
+                ),
+              )
+              .toList();
     return showGeneralDialog(
       context: this,
       barrierColor: barrierColor ?? Colors.transparent,

@@ -210,8 +210,9 @@ extension StringTextStyleExtension on String {
     int? maxLines,
     TextOverflow? overflow,
   }) {
-    TextStyle? baseStyle =
-        context != null ? Theme.of(context).textTheme.bodyMedium : null;
+    TextStyle? baseStyle = context != null
+        ? Theme.of(context).textTheme.bodyMedium
+        : null;
 
     return Text(
       this,

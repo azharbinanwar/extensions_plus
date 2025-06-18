@@ -50,9 +50,9 @@ extension IterableExtension<T> on Iterable<T> {
 
   /// Returns element at index or null if out of bounds.
   ///
-  /// [1, 2, 3].elementAtOrNull(5) // null
-  /// [1, 2, 3].elementAtOrNull(1) // 2
-  T? elementAtOrNull(int index) {
+  /// [1, 2, 3].getAt(5) // null
+  /// [1, 2, 3].getAt(1) // 2
+  T? getAt(int index) {
     if (index < 0) return null;
     var i = 0;
     for (final element in this) {
@@ -64,9 +64,9 @@ extension IterableExtension<T> on Iterable<T> {
 
   /// Returns first element matching predicate or null.
   ///
-  /// [1, 2, 3].firstWhereOrNull((e) => e > 5) // null
-  /// [1, 2, 3].firstWhereOrNull((e) => e > 1) // 2
-  T? firstWhereOrNull(bool Function(T) test) {
+  /// [1, 2, 3].findFirst((e) => e > 5) // null
+  /// [1, 2, 3].findFirst((e) => e > 1) // 2
+  T? findFirst(bool Function(T) test) {
     for (final element in this) {
       if (test(element)) return element;
     }

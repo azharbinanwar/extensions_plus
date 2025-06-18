@@ -23,13 +23,13 @@ extension NavigationExtension on BuildContext {
   ///
   /// Example:
   /// ```dart
-  /// context.push(
+  /// context.pushPlus(
   ///   HomePage(),
   ///   fullscreenDialog: true,
   ///   settings: RouteSettings(name: '/home'),
   /// );
   /// ```
-  Future<T?> push<T>(
+  Future<T?> pushPlus<T>(
     Widget page, {
     bool maintainState = true,
     bool fullscreenDialog = false,
@@ -56,7 +56,7 @@ extension NavigationExtension on BuildContext {
   /// Parameters:
   /// - [page]: The widget to display in the new route
   /// - [predicate]: Function that determines which routes to keep
-  /// - Additional [MaterialPageRoute] properties as described in [push]
+  /// - Additional [MaterialPageRoute] properties as described in [pushPlus]
   ///
   /// Example:
   /// ```dart
@@ -101,7 +101,7 @@ extension NavigationExtension on BuildContext {
   /// Parameters:
   /// - [page]: The widget to display in the new route
   /// - [duration]: Duration of the fade animation (defaults to 300ms)
-  /// - Additional [MaterialPageRoute] properties as described in [push]
+  /// - Additional [MaterialPageRoute] properties as described in [pushPlus]
   ///
   /// Example:
   /// ```dart
@@ -142,7 +142,7 @@ extension NavigationExtension on BuildContext {
   /// - [page]: The widget to display in the new route
   /// - [duration]: Duration of the slide animation (defaults to 300ms)
   /// - [begin]: Starting offset for the slide animation (defaults to right-to-left)
-  /// - Additional [MaterialPageRoute] properties as described in [push]
+  /// - Additional [MaterialPageRoute] properties as described in [pushPlus]
   ///
   /// Example:
   /// ```dart
@@ -185,47 +185,47 @@ extension NavigationExtension on BuildContext {
     );
   }
 
-  /// Pops the current route off the navigation stack.
+  /// Goes back by popping the current route off the navigation stack.
   ///
   /// Optionally returns a [result] to the previous route.
   ///
   /// Example:
   /// ```dart
-  /// context.pop(); // Simple pop
-  /// context.pop('result'); // Pop with result
+  /// context.goBack(); // Simple go back
+  /// context.goBack('result'); // Go back with result
   /// ```
-  void pop<T>([T? result]) => navigator.pop<T>(result);
+  void goBack<T>([T? result]) => navigator.pop<T>(result);
 
-  /// Pops routes until [predicate] returns true.
+  /// Goes back until [predicate] returns true.
   ///
   /// Example:
   /// ```dart
-  /// context.popUntil((route) => route.isFirst); // Pop to first route
+  /// context.goBackUntil((route) => route.isFirst); // Go back to first route
   /// ```
-  void popUntil(bool Function(Route) predicate) =>
+  void goBackUntil(bool Function(Route) predicate) =>
       navigator.popUntil(predicate);
 
-  /// Whether the navigator can pop the current route.
-  bool get canPop => navigator.canPop();
+  /// Whether the navigator can go back (pop the current route).
+  bool get canGoBack => navigator.canPop();
 
-  /// Pops all routes except the first route.
-  void popUntilFirst() => navigator.popUntil((route) => route.isFirst);
+  /// Goes back to the first route (pops all routes except the first).
+  void goBackToFirst() => navigator.popUntil((route) => route.isFirst);
 
-  /// Pops the current route and returns [data] to the previous route.
+  /// Goes back and returns [data] to the previous route.
   ///
   /// Example:
   /// ```dart
-  /// context.popWithData({'result': 'success'});
+  /// context.goBackWithData({'result': 'success'});
   /// ```
-  void popWithData<T>(T data) => navigator.pop<T>(data);
+  void goBackWithData<T>(T data) => navigator.pop<T>(data);
 
-  /// Pops multiple routes at once.
+  /// Goes back multiple routes at once.
   ///
   /// Example:
   /// ```dart
-  /// context.popTimes(2); // Pop two routes
+  /// context.goBackTimes(2); // Go back two routes
   /// ```
-  void popTimes(int times) {
+  void goBackTimes(int times) {
     int count = 0;
     navigator.popUntil((_) => count++ >= times);
   }
