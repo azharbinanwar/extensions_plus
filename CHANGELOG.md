@@ -1,3 +1,42 @@
+### 1.5.0
+
+- **Breaking Changes:**
+    - **Navigation Extensions:** Renamed navigation methods to avoid conflicts with popular packages like `go_router`.
+        - `push()` → `pushPlus()`
+        - `pop()` → `goBack()`
+        - `popUntil()` → `goBackUntil()`
+        - `canPop` → `canGoBack`
+        - `popUntilFirst()` → `goBackToFirst()`
+        - `popWithData()` → `goBackWithData()`
+        - `popTimes()` → `goBackTimes()`
+    - **List Extensions:** Renamed list methods to avoid conflicts with the `collection` package.
+        - `firstWhereOrNull()` → `findFirst()`
+        - `elementAtOrNull()` → `getAt()`
+    - **Iterable Extensions:** Renamed iterable methods to avoid conflicts with the `collection` package.
+        - `firstWhereOrNull()` → `findFirst()`
+        - `elementAtOrNull()` → `getAt()`
+
+- **Migration Guide:**
+    - Update all `context.push()` calls to `context.pushPlus()`
+    - Update all `context.pop()` calls to `context.goBack()`
+    - Update all `list.firstWhereOrNull()` calls to `list.findFirst()`
+    - Update all `list.elementAtOrNull()` calls to `list.getAt()`
+    - Update all `iterable.firstWhereOrNull()` calls to `iterable.findFirst()`
+    - Update all `iterable.elementAtOrNull()` calls to `iterable.getAt()`
+    - Update other navigation methods accordingly
+
+- **Documentation:**
+    - Updated README with new method names and examples
+    - Added migration guide for users upgrading from v1.4.x
+    - Updated all code examples throughout documentation
+
+- **Reason for Changes:**
+    - Resolves **all conflicts** with popular packages (`go_router`, `collection`)
+    - Allows developers to use multiple packages together without import conflicts
+    - Maintains all existing functionality with new, conflict-free naming
+    - Package now works seamlessly alongside the most popular Flutter routing and utility packages
+
+
 ### 1.4.3
 
 - **SDK Updates:**

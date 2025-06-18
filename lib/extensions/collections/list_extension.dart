@@ -22,7 +22,7 @@ extension ListExtension<T> on List<T> {
   ///
   /// [predicate] Condition to match
   /// [Returns] First matching element or null
-  T? firstWhereOrNull(bool Function(T) predicate) {
+  T? findFirst(bool Function(T) predicate) {
     for (final element in this) {
       if (predicate(element)) {
         return element;
@@ -74,7 +74,7 @@ extension ListExtension<T> on List<T> {
   ///
   /// [index] Index to access
   /// [Returns] Element at index or null
-  T? elementAtOrNull(int index) {
+  T? getAt(int index) {
     return (index >= 0 && index < length) ? this[index] : null;
   }
 

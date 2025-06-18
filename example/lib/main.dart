@@ -43,43 +43,43 @@ class ExtensionUsagePage extends StatelessWidget {
           children: [
             ListTile(
               title: const Text('Theme Extension'),
-              onTap: () => context.push(ThemeExtensionPage()),
+              onTap: () => context.pushPlus(ThemeExtensionPage()),
             ),
             ListTile(
               title: const Text('Color Extension'),
-              onTap: () => context.push(ColorExtensionPage()),
+              onTap: () => context.pushPlus(ColorExtensionPage()),
             ),
             ListTile(
               title: const Text('Navigation'),
-              onTap: () => context.push(NavigatorPage()),
+              onTap: () => context.pushPlus(NavigatorPage()),
             ),
             ListTile(
               title: const Text('Map extension'),
-              onTap: () => context.push(MapExtensionPage()),
+              onTap: () => context.pushPlus(MapExtensionPage()),
             ),
             ListTile(
               title: const Text('List extension'),
-              onTap: () => context.push(ListExtensionPage()),
+              onTap: () => context.pushPlus(ListExtensionPage()),
             ),
             ListTile(
               title: const Text('Num extension'),
-              onTap: () => context.push(NumericExtensionDemoPage()),
+              onTap: () => context.pushPlus(NumericExtensionDemoPage()),
             ),
             ListTile(
               title: const Text('DateTime extension'),
-              onTap: () => context.push(DateTimeExtensionDemoPage()),
+              onTap: () => context.pushPlus(DateTimeExtensionDemoPage()),
             ),
             ListTile(
               title: const Text('Widget extension'),
-              onTap: () => context.push(WidgetExtensionDemo()),
+              onTap: () => context.pushPlus(WidgetExtensionDemo()),
             ),
             ListTile(
               title: const Text('String extension'),
-              onTap: () => context.push(StringExtensionPage()),
+              onTap: () => context.pushPlus(StringExtensionPage()),
             ),
             ListTile(
               title: const Text('Text Style extension'),
-              onTap: () => context.push(TextStyleDemoPage()),
+              onTap: () => context.pushPlus(TextStyleDemoPage()),
             ),
           ],
         ),

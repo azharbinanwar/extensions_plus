@@ -14,7 +14,7 @@ class NavigatorPage extends StatelessWidget {
           children: [
             ListTile(
               title: const Text('Navigator Extension'),
-              onTap: () => context.push(FirstPage()),
+              onTap: () => context.pushPlus(FirstPage()),
             ),
 
             // with transitions
@@ -42,7 +42,7 @@ class FirstPage extends StatelessWidget {
         appBar: AppBar(title: Text('First Page')),
         body: Center(
           child: ElevatedButton(
-            onPressed: () => context.push(SecondPage()),
+            onPressed: () => context.pushPlus(SecondPage()),
             child: Text('Go to Second Page'),
           ),
         ),
@@ -57,7 +57,7 @@ class SecondPage extends StatelessWidget {
         appBar: AppBar(title: Text('Second Page')),
         body: Center(
           child: ElevatedButton(
-            onPressed: () => context.pop(),
+            onPressed: () => context.goBack(),
             child: Text('Go Back'),
           ),
         ),
