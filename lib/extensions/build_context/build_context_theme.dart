@@ -228,8 +228,8 @@ extension BuildContextTheme on BuildContext {
   /// Returns the surfaceTint color from the current theme.
   Color get surfaceTint => Theme.of(this).colorScheme.surfaceTint;
 
-  /// AppBar Theme
-  AppBarTheme get appBarTheme => Theme.of(this).appBarTheme;
+  /// AppBar Theme Data
+  AppBarThemeData get appBarTheme => Theme.of(this).appBarTheme;
 
   /// Access the app bar color of the current theme.
   Color get appBarColor => Theme.of(this).appBarTheme.backgroundColor!;
@@ -302,8 +302,8 @@ extension BuildContextTheme on BuildContext {
   /// Retrieves the [MaterialBannerThemeData] for material banners.
   MaterialBannerThemeData get bannerTheme => Theme.of(this).bannerTheme;
 
-  /// Retrieves the [BottomAppBarTheme] for bottom app bars.
-  BottomAppBarTheme get bottomAppBarTheme => Theme.of(this).bottomAppBarTheme;
+  /// Retrieves the [BottomAppBarThemeData] for bottom app bars.
+  BottomAppBarThemeData get bottomAppBarTheme => Theme.of(this).bottomAppBarTheme;
 
   /// Retrieves the [BottomNavigationBarThemeData] for bottom navigation bars.
   BottomNavigationBarThemeData get bottomNavigationBarTheme =>

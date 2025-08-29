@@ -1,3 +1,13 @@
+### 1.6.0
+
+- **SDK Updates:**
+    - Updated flutter constraint to `>=3.35.0` for flutter 3.35.0 compatibility.
+
+- **Bug Fixes:**
+    - Replaced deprecated `AppBarTheme` with `AppBarThemeData`Data` in `BuildContextTheme`.
+    - Replaced deprecated `BottomAppBarTheme` with `BottomAppBarTheme`Data` in `BuildContextTheme`.
+    - Replaced deprecated `InputDecorationTheme` with `InputDecorationThemeData`Data` in `GenericBuildContextExtension`.
+
 ### 1.5.0
 
 - **Breaking Changes:**
