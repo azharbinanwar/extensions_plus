@@ -17,8 +17,8 @@ extension GenericBuildContextExtension on BuildContext {
   Map<Object, ThemeExtension<dynamic>> get extensions =>
       Theme.of(this).extensions;
 
-  /// Retrieve the `InputDecorationTheme`.
-  InputDecorationTheme get inputDecorationTheme =>
+  /// Retrieve the `InputDecorationThemeData`.
+  InputDecorationThemeData get inputDecorationTheme =>
       Theme.of(this).inputDecorationTheme;
 
   /// Access the `MaterialTapTargetSize`.
