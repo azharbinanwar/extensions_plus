@@ -303,7 +303,8 @@ extension BuildContextTheme on BuildContext {
   MaterialBannerThemeData get bannerTheme => Theme.of(this).bannerTheme;
 
   /// Retrieves the [BottomAppBarThemeData] for bottom app bars.
-  BottomAppBarThemeData get bottomAppBarTheme => Theme.of(this).bottomAppBarTheme;
+  BottomAppBarThemeData get bottomAppBarTheme =>
+      Theme.of(this).bottomAppBarTheme;
 
   /// Retrieves the [BottomNavigationBarThemeData] for bottom navigation bars.
   BottomNavigationBarThemeData get bottomNavigationBarTheme =>

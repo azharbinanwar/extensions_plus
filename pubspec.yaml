@@ -17,4 +17,15 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^6.0.0
 
+# WASM compatibility - this package uses only WASM-compatible libraries
+# No usage of dart:html, dart:js, or other non-WASM libraries
+topics:
+  - extensions
+  - utilities
+  - dart
+  - flutter
+  - helper-functions
+  - productivity
+  - wasm-ready
+
 flutter:
