@@ -125,7 +125,7 @@ String straight to a themed `Text` widget:
 ## Text and TextStyle
 
 ```dart
-Text('x').textColor(Colors.red).fontSize(18).maxLines(2).overflow(TextOverflow.ellipsis)
+Text('x').textColor(Colors.red).fontSize(18).withTextProperties(maxLines: 2, overflow: TextOverflow.ellipsis)
 context.bodyMedium!.bold.italic.withColor(context.primary).underline
 style.small / style.large / style.semiBold / style.ellipsis
 ```
@@ -193,3 +193,4 @@ color.brightness(1.2) / .saturation(0.8)
 - `num.clamp` from this package is shadowed by Dart's own `num.clamp`. Use the SDK one.
 - `List` and `Iterable` both define `groupBy`, `chunk`, `partition`, `findFirst`, `getAt`. On a `List` the List version wins and `partition` returns `List<List<T>>`, not a record.
 - `String` and `Text` share method names (`textColor`, `fontSize`, `withStyle`). Both return `Text`.
+- On a `Text` widget, `maxLines`, `overflow` and `textAlign` are Flutter properties, not chainable methods. Use `withTextProperties(maxLines: 2)`. On a `String` the chainable `.maxLines(2)` form works.

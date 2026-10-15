@@ -68,7 +68,8 @@ extension NumericExtension on num {
   /// "22nd"
   /// "123rd"
   String toOrdinal() {
-    if (this >= 11 && this <= 13) return '${this}th';
+    final mod100 = this % 100;
+    if (mod100 >= 11 && mod100 <= 13) return '${this}th';
     switch (this % 10) {
       case 1:
         return '${this}st';

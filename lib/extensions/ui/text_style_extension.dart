@@ -83,27 +83,6 @@ extension TextStyleExtension on Text {
     );
   }
 
-  /// Sets the text alignment to [align].
-  ///
-  /// This method is used to align the text within its layout bounds.
-  ///
-  /// The [align] parameter determines how the text is aligned. For example:
-  /// - `TextAlign.left`: Aligns the text to the left.
-  /// - `TextAlign.center`: Centers the text horizontally.
-  /// - `TextAlign.right`: Aligns the text to the right.
-  /// - `TextAlign.justify`: Justifies the text, spreading it to fill the width.
-  Text textAlign(TextAlign align) => _copyWith(textAlign: align);
-
-  /// Sets the maximum number of lines for the text.
-  ///
-  /// If the text exceeds the specified [lines], it will be truncated according to the `overflow` property.
-  Text maxLines(int lines) => _copyWith(maxLines: lines);
-
-  /// Sets the overflow behavior for the text.
-  ///
-  /// This determines how text is handled when it overflows its bounds.
-  Text overflow(TextOverflow overflow) => _copyWith(overflow: overflow);
-
   /// A flexible method that allows setting multiple style properties of the text at once.
   ///
   /// This method provides a convenient way to modify various `TextStyle` properties
