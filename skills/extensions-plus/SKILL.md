@@ -71,6 +71,7 @@ await context.showAppDialog(title: Text('Delete?'), content: Text('...'), action
 await context.showAppGeneralDialog(...);  // custom chrome with close button
 context.unfocus();                       // FocusScope.of(context).unfocus()
 await context.copyToClipboard('text');
+context.isDarkMode / context.isRtl / context.locale
 ```
 
 ## Widget
@@ -95,6 +96,7 @@ child.background(Colors.white)
 child.opacity(0.5) / .rotate(0.1) / .scale(1.2)
 child.square(48) / .fit()
 child.constrains(maxWidth: 600) / .responsiveConstrains()
+child.onLongPress(() => ...) / .hero('tag') / .tooltip('msg') / .semantics('label', button: true)
 [a, b, c].toScrollableList() / .toScrollableGrid(crossAxisCount: 2)
 ```
 
@@ -111,6 +113,10 @@ child.constrains(maxWidth: 600) / .responsiveConstrains()
 'long text'.truncate(5)        // long ...
 'pw'.isStrongPassword(minLength: 8)
 'a b'.removeWhitespace / 'a-b!'.trimSpecialCharacters() / 'a b c'.getWordCount()
+'  '.isBlank / 'https://x.com'.isUrl / '+1 555 1234567'.isPhone
+'42'.toInt() / 'x'.toInt(defaultValue: -1)
+'4111111111111111'.mask()       // ************1111
+'#F44336'.toColor()             // Color? (null when invalid)
 ```
 
 String straight to a themed `Text` widget:
@@ -138,11 +144,21 @@ style.small / style.large / style.semiBold / style.ellipsis
 1500000.toCompact()      // 1.5M
 19.99.toCurrency()       // $19.99
 3.toOrdinal()            // 3rd
-1536.toFileSize()        // 1.5 KB
+1536.toFileSize()        // 1.5KB
 1500.toMetric()          // 1.5k
 1234567.format()         // 1,234,567
 5.isBetween(1, 10)
 7.roundToNearest(5)      // 5
+```
+
+## int to Duration, and Duration
+
+```dart
+5.seconds / 300.ms / 2.minutes / 1.hours / 7.days      // Duration
+Future.delayed(2.seconds)
+Duration(minutes: 4, seconds: 5).format()              // 04:05
+Duration(hours: 1, minutes: 2, seconds: 3).format()    // 1:02:03
+Duration(hours: 2, minutes: 15).toHumanReadable()      // 2h 15m
 ```
 
 ## DateTime
@@ -155,6 +171,9 @@ date.timeAgo()           // "5 m", "2 h", "3 d", "In 2 d"
 date.startOfDay / .endOfDay
 date.age                 // years since date
 date.dayName() / .monthName()
+date.startOfWeek / .startOfMonth / .endOfMonth
+date.addMonths(1)        // clamps Jan 31 to Feb 29
+date.isWeekend / date.copyWith(hour: 0)
 ```
 
 ## Collections
@@ -163,7 +182,7 @@ date.dayName() / .monthName()
 list.groupBy((e) => e.category)          // Map<K, List<T>>
 list.distinctBy((e) => e.id)
 list.chunk(3)                            // List<List<T>>
-list.partition((e) => e.isActive)        // Iterable: (matched, rest) record
+list.partition((e) => e.isActive)        // (matched, rest) record
 list.findFirst((e) => e.id == 1)         // null-safe firstWhere
 list.getAt(5)                            // null-safe index
 list.shuffled()
@@ -174,6 +193,17 @@ iterable.toIndexMap() / .allEqual()
 map.groupByMultiple((v) => [v.a, v.b])
 map.updateNested(['user', 'name'], (old) => 'new')
 map.toQueryParams()                      // a=1&b=2
+iterable.orderBy((e) => e.name, descending: true)   // sorted List
+iterable.takeLast(2) / iterable.intersperse(divider)
+map.getOrDefault('k', 0) / map.filterKeys((k) => ...) / map.mapKeys((k) => ...) / map.toPrettyJson()
+```
+
+## Nullable
+
+```dart
+String? s;  s.isNullOrEmpty / s.isNullOrBlank / s.orEmpty
+List? l;    l.isNullOrEmpty / l.isNotNullOrEmpty / l.orEmpty
+Map? m;     m.isNullOrEmpty / m.orEmpty
 ```
 
 ## Color
@@ -186,11 +216,14 @@ color.hexWithAlpha    // #AARRGGBB
 color.invert
 color.shades          // 10 tints and shades, index 5 is the original
 color.brightness(1.2) / .saturation(0.8)
+color.withOpacityValue(0.5)   // withOpacity replacement built on withValues
 ```
 
 ## Pitfalls
 
-- `num.clamp` from this package is shadowed by Dart's own `num.clamp`. Use the SDK one.
-- `List` and `Iterable` both define `groupBy`, `chunk`, `partition`, `findFirst`, `getAt`. On a `List` the List version wins and `partition` returns `List<List<T>>`, not a record.
+- `chunk` and `distinctBy` return lazy `Iterable`s. Add `.toList()` when a `List` is needed.
+- `partition` returns a `(matched, rest)` record, destructure with `final (yes, no) = ...`.
+- `firstOrNull`, `lastOrNull`, `sortedBy` are deliberately absent because `package:collection` owns those names. Use `findFirst`, `getAt`, `orderBy`.
+- `5.seconds` style getters also exist in packages like `time`. Import only one.
 - `String` and `Text` share method names (`textColor`, `fontSize`, `withStyle`). Both return `Text`.
 - On a `Text` widget, `maxLines`, `overflow` and `textAlign` are Flutter properties, not chainable methods. Use `withTextProperties(maxLines: 2)`. On a `String` the chainable `.maxLines(2)` form works.

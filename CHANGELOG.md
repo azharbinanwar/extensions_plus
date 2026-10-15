@@ -1,8 +1,35 @@
-### Unreleased
+### 2.0.0
+
+- **Breaking Changes:**
+    - `ListExtension` now only provides `shuffled()`. `groupBy`, `distinctBy`, `chunk`, `partition`, `findFirst` and `getAt` come from `IterableExtension` and keep working on lists, but `partition` now returns a `(matched, rest)` record instead of `List<List<T>>`, and `chunk` / `distinctBy` return lazy `Iterable`s (call `.toList()` if you need a list).
+    - Removed `num.clamp`. It was always shadowed by Dart's own `num.clamp`, so no call site can be affected.
+    - Removed `maxLines`, `overflow` and `textAlign` methods from the `Text` extension. `Text` already has properties with those names, so these could never be called. Use `withTextProperties(maxLines: ..., overflow: ..., textAlign: ...)`. The chainable forms on `String` are unchanged.
+
+- **New Extensions:**
+    - `int`: `5.seconds`, `300.ms`, `2.minutes`, `1.hours`, `7.days`.
+    - `Duration`: `format()` (`mm:ss` or `h:mm:ss`) and `toHumanReadable()` (`2h 15m`).
+    - `String?`, `Iterable?`, `Map?`: `isNullOrEmpty`, `isNotNullOrEmpty`, `orEmpty`; `String?` also gets `isNullOrBlank`.
+
+- **Additions to existing extensions:**
+    - `DateTime`: `startOfWeek`, `startOfMonth`, `endOfMonth`, `addMonths` (clamps the day), `isWeekend`, `copyWith`.
+    - `String`: `isBlank`, `isUrl`, `isPhone`, `toInt(defaultValue:)`, `mask()`, `toColor()`.
+    - `BuildContext`: `isDarkMode`, `isRtl`, `locale`.
+    - `Widget`: `onLongPress`, `hero`, `tooltip`, `semantics`.
+    - `Color`: `withOpacityValue` using the non-deprecated `withValues` API.
+    - `Iterable`: `orderBy` (named to avoid clashing with `package:collection`'s `sortedBy`), `takeLast`, `intersperse`.
+    - `Map`: `getOrDefault`, `filterKeys`, `mapKeys`, `toPrettyJson`.
+
+- **Bug Fixes:**
+    - `toOrdinal` returned `112nd`; it now checks the last two digits so 111 to 113 give `th`.
+    - README documented `elementAtOrNull` and `firstWhereOrNull`; the real names are `getAt` and `findFirst`.
+
+- **Tests and CI:**
+    - Added 54 unit and widget tests covering every extension group.
+    - Added a GitHub Actions workflow running format, analyze, test and `pub publish --dry-run`.
 
 - **SDK Updates:**
-    - Updated Dart SDK constraint to `^3.13.0` and Flutter constraint to `>=3.47.0` for Flutter 3.47.7 compatibility.
-    - Example app: bumped `flutter_lints` to `^6.0.0` and `cupertino_icons` to `^2.0.0`.
+    - Dart SDK constraint `^3.13.0` and Flutter constraint `>=3.47.0` for Flutter 3.47.7.
+    - Example app: `flutter_lints` `^6.0.0`, `cupertino_icons` `^2.0.0`.
 
 - **AI assistant support:**
     - Added `skills/extensions-plus/SKILL.md`, an agent cheat sheet usable as a Claude Code skill, Cursor rule or `AGENTS.md` reference.

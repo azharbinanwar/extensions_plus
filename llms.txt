@@ -8,7 +8,7 @@ Install: add `extensions_plus` to pubspec.yaml, then `import 'package:extensions
 
 - [API cheat sheet for coding agents](https://raw.githubusercontent.com/azharbinanwar/extensions_plus/master/skills/extensions-plus/SKILL.md): every extension with the raw Flutter call it replaces, plus pitfalls. Also usable as a Claude Code skill, Cursor rule or AGENTS.md block.
 - [README](https://raw.githubusercontent.com/azharbinanwar/extensions_plus/master/README.md): full reference with examples per extension group.
-- [CHANGELOG](https://raw.githubusercontent.com/azharbinanwar/extensions_plus/master/CHANGELOG.md): breaking renames, notably v1.5.0 navigation methods (`push` to `pushPlus`, `pop` to `goBack`).
+- [CHANGELOG](https://raw.githubusercontent.com/azharbinanwar/extensions_plus/master/CHANGELOG.md): breaking changes, notably v2.0.0 (List duplicates removed, `partition` returns a record) and v1.5.0 navigation renames (`push` to `pushPlus`, `pop` to `goBack`).
 
 ## Optional
 

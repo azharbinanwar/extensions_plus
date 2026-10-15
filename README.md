@@ -148,6 +148,14 @@ Use `DeviceContextExtension` to simplify responsive design and device-specific l
 applications!
 
 
+### Theme and locale shortcuts
+
+```dart
+context.isDarkMode   // Theme.of(context).brightness == Brightness.dark
+context.isRtl        // Directionality.of(context) == TextDirection.rtl
+context.locale       // Localizations.localeOf(context)
+```
+
 # Easy Navigation
 
 The `NavigationExtension` enhances the `BuildContext` in Flutter, providing a rich set of navigation utilities to simplify routing tasks. Designed for flexibility, it supports common navigation patterns, custom transitions, and more.
@@ -641,6 +649,18 @@ DateTime.now().monthName; // "January"
 ----
 
 
+### Calendar helpers
+
+```dart
+final d = DateTime(2024, 3, 15, 10, 30);
+d.startOfWeek;              // Monday 2024-03-11 00:00
+d.startOfMonth;             // 2024-03-01 00:00
+d.endOfMonth;               // 2024-03-31 23:59:59.999
+d.isWeekend;                // false
+d.copyWith(hour: 0);        // 2024-03-15 00:30
+DateTime(2024, 1, 31).addMonths(1); // 2024-02-29, day is clamped
+```
+
 ## Widget Extensions
 
 This extensions adds a set of utility methods to the `Widget` class, making it easier to apply common UI customizations like padding, margin, tap gestures, scrollability, and more in a clean and reusable way.
@@ -801,6 +821,15 @@ With these utility methods, you can make your Flutter widgets more customizable 
 
 ----
 
+### Accessibility and gestures
+
+```dart
+icon.tooltip('Settings')
+avatar.hero('avatar-${user.id}')
+button.semantics('Save', button: true)
+card.onLongPress(() => showMenu())
+```
+
 ## Collections
 ## Extensions Methods for `Iterable<T>`
 
@@ -915,136 +944,36 @@ These utility functions significantly enhance the way iterables are handled in D
 
 ----
 
+### 14. **`orderBy<R>(R Function(T) selector, {bool descending})`**
+
+Sorted copy by a comparable key. Named `orderBy` so it never clashes with `package:collection`'s `sortedBy`.
+
+```dart
+users.orderBy((u) => u.age);
+users.orderBy((u) => u.name, descending: true);
+```
+
+### 15. **`takeLast(int count)`**
+
+```dart
+[1, 2, 3, 4].takeLast(2); // (3, 4)
+```
+
+### 16. **`intersperse(T separator)`**
+
+```dart
+[a, b, c].intersperse(divider); // [a, divider, b, divider, c]
+```
+
 ## Extensions Methods for `List<T>`
 
+Every `Iterable<T>` method above works on a `List<T>` too. `List` adds one of its own:
 
-Extensions methods for `List<T>` that provide utility functions to manipulate and query list data efficiently.
-
-#### `distinctBy<R>(R Function(T) selector)`
-
-Removes duplicate elements in the list based on a selector function.
-
-- **Parameters:**
-    - `selector`: A function that determines the uniqueness of elements by returning a key for comparison.
-
-- **Returns:**
-    - A new list with distinct elements based on the selected key.
-
-**Example:**
 ```dart
-final users = [
-  {'id': 1, 'name': 'John'},
-  {'id': 1, 'name': 'John Updated'}
-];
-final uniqueUsers = users.distinctBy((user) => user['id']);
-// Result: [{'id': 1, 'name': 'John'}]
+final shuffled = [1, 2, 3, 4].shuffled(); // new list, original untouched
 ```
 
-#### `findFirst(bool Function(T) predicate)`
-
-Returns the first element in the list that matches a given predicate or `null` if no match is found.
-
-- **Parameters:**
-    - `predicate`: A function that defines the condition to match.
-
-- **Returns:**
-    - The first element that satisfies the condition or `null` if none match.
-
-**Example:**
-```dart
-final numbers = [1, 2, 3];
-final result = numbers.findFirst((n) => n > 5);
-// Result: null
-```
-
-#### `groupBy<R>(R Function(T) selector)`
-
-Groups the elements of the list by a key derived from the selector function.
-
-- **Parameters:**
-    - `selector`: A function that extracts the key used to group elements.
-
-- **Returns:**
-    - A map where the keys are the group identifiers and the values are lists of elements that belong to each group.
-
-**Example:**
-```dart
-final users = [
-  {'name': 'John', 'age': 25},
-  {'name': 'Jane', 'age': 25},
-  {'name': 'Tom', 'age': 30}
-];
-final groupedByAge = users.groupBy((user) => user['age']);
-// Result: {25: [{'name': 'John', 'age': 25}, {'name': 'Jane', 'age': 25}], 30: [{'name': 'Tom', 'age': 30}]}
-```
-
-#### `partition(bool Function(T) predicate)`
-
-Splits the list into two sublists based on a given predicate.
-
-- **Parameters:**
-    - `predicate`: A function that defines the condition to separate elements.
-
-- **Returns:**
-    - A list of two lists: the first contains elements that match the predicate, and the second contains those that do not.
-
-**Example:**
-```dart
-final numbers = [1, 2, 3, 4, 5];
-final partitioned = numbers.partition((n) => n.isEven);
-// Result: [[2, 4], [1, 3, 5]]
-```
-
-#### `chunk(int size)`
-
-Splits the list into chunks of the specified size.
-
-- **Parameters:**
-    - `size`: The size of each chunk.
-
-- **Returns:**
-    - A list of sublists, each containing a chunk of the original list.
-
-**Example:**
-```dart
-final numbers = [1, 2, 3, 4, 5];
-final chunked = numbers.chunk(2);
-// Result: [[1, 2], [3, 4], [5]]
-```
-
-#### `getAt(int index)`
-
-Safely retrieves the element at the specified index, returning `null` if the index is out of bounds.
-
-- **Parameters:**
-    - `index`: The index of the element to retrieve.
-
-- **Returns:**
-    - The element at the specified index or `null` if the index is invalid.
-
-**Example:**
-```dart
-final numbers = [1, 2, 3];
-final element = numbers.getAt(5);
-// Result: null
-```
-
-#### `shuffled()`
-
-Returns a new list with the elements shuffled randomly.
-
-- **Returns:**
-    - A new list with the elements in random order.
-
-**Example:**
-```dart
-final numbers = [1, 2, 3, 4, 5];
-final shuffledNumbers = numbers.shuffled();
-// Result: [3, 1, 4, 5, 2] (order may vary)
-```
-----
-
-### Map Opertations
+## Map Extensions
 
 Extensions methods for `Map<K, V>` that provide utility functions to manipulate and query map data efficiently.
 
@@ -1126,6 +1055,16 @@ final queryParams = params.toQueryParams();
 ```
 ----
 
+
+#### `getOrDefault`, `filterKeys`, `mapKeys`, `toPrettyJson`
+
+```dart
+final m = {'a': 1, 'b': 2};
+m.getOrDefault('z', 0);              // 0
+m.filterKeys((k) => k == 'a');       // {'a': 1}
+m.mapKeys((k) => k.toUpperCase());   // {'A': 1, 'B': 2}
+m.toPrettyJson();                    // indented JSON string
+```
 
 ## Color Extensions
 
@@ -1242,6 +1181,14 @@ With the `ColorExtension`, you can easily manipulate colors to create dynamic an
 ----
 
 
+#### `withOpacityValue(double opacity)`
+
+Same as the deprecated `withOpacity`, built on `withValues`.
+
+```dart
+Colors.blue.withOpacityValue(0.5);
+```
+
 ## Strings
 
 The **String Extensions Demo** screen showcases the functionality of custom string extensions implemented in this project. This interactive UI allows users to input a string and apply various transformations or validations to see real-time results.
@@ -1306,6 +1253,18 @@ The String Extensions Demo aims to showcase how you can enhance and simplify str
 
 
 
+### Validation and masking
+
+```dart
+'   '.isBlank;                          // true
+'https://example.com'.isUrl;            // true
+'+1 (555) 123-4567'.isPhone;            // true
+'42'.toInt();                           // 42
+'x'.toInt(defaultValue: -1);            // -1
+'4111111111111111'.mask();              // ************1111
+'#F44336'.toColor();                    // Color(0xFFF44336), null if invalid
+```
+
 ## Numeric Extensions: Simplified Numeric Operations
 
 The `NumericExtension` provides a set of utility methods for working with numeric data types in Dart. These methods help format numbers, convert them to various representations, and perform common numeric operations efficiently.
@@ -1335,6 +1294,39 @@ The `NumericExtension` provides a set of utility methods for working with numeri
 
 - **Value Clamping**: Clamp a number between a specified minimum and maximum range.
 
+
+## Duration Extensions
+
+Build durations from integers and format them.
+
+```dart
+Future.delayed(2.seconds);
+Timer(300.ms, tick);
+final d = 1.hours + 2.minutes + 3.seconds;
+
+d.format();                               // 1:02:03
+Duration(minutes: 4, seconds: 5).format(); // 04:05
+Duration(hours: 2, minutes: 15).toHumanReadable(); // 2h 15m
+Duration(seconds: 45).toHumanReadable();          // 45s
+```
+
+## Nullable Extensions
+
+Null-and-empty checks on `String?`, `Iterable<T>?` and `Map<K, V>?`.
+
+```dart
+String? name;
+name.isNullOrEmpty;     // true
+name.isNullOrBlank;     // true, also catches whitespace
+name.orEmpty;           // ''
+
+List<int>? items;
+items.isNullOrEmpty;    // true
+items.orEmpty.length;   // 0
+
+Map<String, int>? m;
+m.isNotNullOrEmpty;     // false
+```
 
 ## Example Project
 
