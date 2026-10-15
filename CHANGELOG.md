@@ -1,3 +1,9 @@
+### 1.7.0
+
+- **SDK Updates:**
+    - Updated Dart SDK constraint to `^3.13.0` and Flutter constraint to `>=3.47.0` for Flutter 3.47.7 compatibility.
+    - Example app: bumped `flutter_lints` to `^6.0.0` and `cupertino_icons` to `^2.0.0`.
+
 ### 1.6.0
 
 - **SDK Updates:**
