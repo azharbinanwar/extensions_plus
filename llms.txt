@@ -1,0 +1,16 @@
+# extensions_plus
+
+> Flutter package of extension methods on BuildContext, Widget, Text, TextStyle, String, num, DateTime, Color, Iterable, List and Map. One import replaces most Theme.of(context), Navigator, Padding and collection-loop boilerplate.
+
+Install: add `extensions_plus` to pubspec.yaml, then `import 'package:extensions_plus/extensions_plus.dart';`
+
+## Docs
+
+- [API cheat sheet for coding agents](https://raw.githubusercontent.com/azharbinanwar/extensions_plus/master/skills/extensions-plus/SKILL.md): every extension with the raw Flutter call it replaces, plus pitfalls. Also usable as a Claude Code skill, Cursor rule or AGENTS.md block.
+- [README](https://raw.githubusercontent.com/azharbinanwar/extensions_plus/master/README.md): full reference with examples per extension group.
+- [CHANGELOG](https://raw.githubusercontent.com/azharbinanwar/extensions_plus/master/CHANGELOG.md): breaking renames, notably v1.5.0 navigation methods (`push` to `pushPlus`, `pop` to `goBack`).
+
+## Optional
+
+- [Example app](https://github.com/azharbinanwar/extensions_plus/tree/master/example): one demo page per extension group.
+- [pub.dev](https://pub.dev/packages/extensions_plus)

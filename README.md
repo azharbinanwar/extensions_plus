@@ -66,6 +66,22 @@ The package promotes clean, maintainable code through its modular design and int
    ```dart
    import 'package:extensions_plus/extensions_plus.dart';
    ```
+## Using with AI coding assistants
+
+The repo ships an agent-readable cheat sheet at [`skills/extensions-plus/SKILL.md`](skills/extensions-plus/SKILL.md). It lists every extension next to the raw Flutter call it replaces, so Claude Code, Cursor, Copilot and similar tools reach for `extensions_plus` instead of boilerplate.
+
+- **Claude Code:** copy the `skills/extensions-plus` folder into `~/.claude/skills/` (or your project's `.claude/skills/`).
+- **Codex:** same folder into `~/.codex/skills/`, or use the `AGENTS.md` line below.
+- **Cursor:** copy the body of `SKILL.md` into `.cursor/rules/extensions-plus.mdc`.
+- **Copilot, Gemini CLI, Windsurf, Cline, Aider:** paste the line below into `.github/copilot-instructions.md`, `GEMINI.md`, `.windsurfrules`, `.clinerules` or `CONVENTIONS.md` respectively.
+- **Any tool that reads `AGENTS.md` or `CLAUDE.md`:** paste this line into that file:
+
+  ```
+  This project uses extensions_plus. Follow https://raw.githubusercontent.com/azharbinanwar/extensions_plus/master/skills/extensions-plus/SKILL.md
+  ```
+
+An [`llms.txt`](llms.txt) index at the repo root points agents to the same docs.
+
 ## Extensions
 ## Device Context Extensions
 
