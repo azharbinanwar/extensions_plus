@@ -266,7 +266,7 @@ class _ListExtensionPageState extends State<ListExtensionPage> {
                         const Text('Age > 30',
                             style: TextStyle(fontWeight: FontWeight.w500)),
                         const SizedBox(height: 8),
-                        ...partitioned[0].map((user) => Padding(
+                        ...partitioned.$1.map((user) => Padding(
                               padding: const EdgeInsets.only(bottom: 4),
                               child: Text('${user['name']} (${user['age']})'),
                             )),
@@ -288,7 +288,7 @@ class _ListExtensionPageState extends State<ListExtensionPage> {
                         const Text('Age ≤ 30',
                             style: TextStyle(fontWeight: FontWeight.w500)),
                         const SizedBox(height: 8),
-                        ...partitioned[1].map((user) => Padding(
+                        ...partitioned.$2.map((user) => Padding(
                               padding: const EdgeInsets.only(bottom: 4),
                               child: Text('${user['name']} (${user['age']})'),
                             )),
@@ -305,7 +305,7 @@ class _ListExtensionPageState extends State<ListExtensionPage> {
   }
 
   Widget _buildChunkSection() {
-    final chunks = _users.chunk(_chunkSize);
+    final chunks = _users.chunk(_chunkSize).toList();
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),

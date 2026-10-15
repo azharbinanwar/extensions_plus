@@ -81,18 +81,6 @@ extension NumericExtension on num {
     }
   }
 
-  /// Clamps value between minimum and maximum.
-  ///
-  /// Input:
-  /// 5.clamp(0, 10)
-  /// 15.clamp(0, 10)
-  /// -5.clamp(0, 10)
-  /// Output:
-  /// 5
-  /// 10
-  /// 0
-  num clamp(num min, num max) => this < min ? min : (this > max ? max : this);
-
   /// Checks if number is between two values (inclusive).
   ///
   /// Input:

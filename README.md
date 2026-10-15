@@ -838,18 +838,18 @@ Splits the iterable into chunks of a specified size.
   ```
 - Result: `[[1, 2], [3, 4], [5]]`
 
-### 4. **`elementAtOrNull(int index)`**
+### 4. **`getAt(int index)`**
 Returns the element at the specified index, or `null` if the index is out of bounds.
 - Example:
   ```dart
-  [1, 2, 3].elementAtOrNull(5) // null
+  [1, 2, 3].getAt(5) // null
   ```
 
-### 5. **`firstWhereOrNull(bool Function(T) test)`**
+### 5. **`findFirst(bool Function(T) test)`**
 Returns the first element matching the provided predicate, or `null` if no match is found.
 - Example:
   ```dart
-  [1, 2, 3].firstWhereOrNull((e) => e > 5) // null
+  [1, 2, 3].findFirst((e) => e > 5) // null
   ```
 
 ### 6. **`toIndexMap()`**
@@ -940,7 +940,7 @@ final uniqueUsers = users.distinctBy((user) => user['id']);
 // Result: [{'id': 1, 'name': 'John'}]
 ```
 
-#### `firstWhereOrNull(bool Function(T) predicate)`
+#### `findFirst(bool Function(T) predicate)`
 
 Returns the first element in the list that matches a given predicate or `null` if no match is found.
 
@@ -953,7 +953,7 @@ Returns the first element in the list that matches a given predicate or `null` i
 **Example:**
 ```dart
 final numbers = [1, 2, 3];
-final result = numbers.firstWhereOrNull((n) => n > 5);
+final result = numbers.findFirst((n) => n > 5);
 // Result: null
 ```
 
@@ -1012,7 +1012,7 @@ final chunked = numbers.chunk(2);
 // Result: [[1, 2], [3, 4], [5]]
 ```
 
-#### `elementAtOrNull(int index)`
+#### `getAt(int index)`
 
 Safely retrieves the element at the specified index, returning `null` if the index is out of bounds.
 
@@ -1025,7 +1025,7 @@ Safely retrieves the element at the specified index, returning `null` if the ind
 **Example:**
 ```dart
 final numbers = [1, 2, 3];
-final element = numbers.elementAtOrNull(5);
+final element = numbers.getAt(5);
 // Result: null
 ```
 
