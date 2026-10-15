@@ -95,4 +95,20 @@ extension MapExtension<K, V> on Map<K, V> {
         )
         .join('&');
   }
+
+  /// The value for [key], or [defaultValue] when absent.
+  V getOrDefault(K key, V defaultValue) => this[key] ?? defaultValue;
+
+  /// New map keeping only entries whose key passes [test].
+  Map<K, V> filterKeys(bool Function(K key) test) =>
+      Map.fromEntries(entries.where((e) => test(e.key)));
+
+  /// New map with every key transformed by [convert]. Later duplicates win.
+  Map<K2, V> mapKeys<K2>(K2 Function(K key) convert) => {
+    for (final e in entries) convert(e.key): e.value,
+  };
+
+  /// Indented JSON. Non-encodable values fall back to `toString()`.
+  String toPrettyJson({String indent = '  '}) =>
+      JsonEncoder.withIndent(indent, (o) => o.toString()).convert(this);
 }

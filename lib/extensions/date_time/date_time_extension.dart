@@ -129,4 +129,57 @@ extension DateTimeExtension on DateTime {
   /// [Returns] Month name string
   String monthName({String? locale}) =>
       intl.DateFormat('MMMM', locale).format(this);
+
+  /// Midnight on the Monday of this date's week.
+  DateTime get startOfWeek => startOfDay.subtract(Duration(days: weekday - 1));
+
+  /// Midnight on the first day of this month.
+  DateTime get startOfMonth => DateTime(year, month);
+
+  /// Last millisecond of the last day of this month.
+  DateTime get endOfMonth => DateTime(year, month + 1, 0, 23, 59, 59, 999);
+
+  /// Adds [months], clamping the day so Jan 31 + 1 month is Feb 28/29, not Mar 3.
+  DateTime addMonths(int months) {
+    final target = DateTime(year, month + months);
+    final lastDay = DateTime(target.year, target.month + 1, 0).day;
+    return DateTime(
+      target.year,
+      target.month,
+      day > lastDay ? lastDay : day,
+      hour,
+      minute,
+      second,
+      millisecond,
+      microsecond,
+    );
+  }
+
+  /// True on Saturday or Sunday.
+  bool get isWeekend =>
+      weekday == DateTime.saturday || weekday == DateTime.sunday;
+
+  /// Returns a copy with the given fields replaced.
+  DateTime copyWith({
+    int? year,
+    int? month,
+    int? day,
+    int? hour,
+    int? minute,
+    int? second,
+    int? millisecond,
+    int? microsecond,
+  }) {
+    final ctor = isUtc ? DateTime.utc : DateTime.new;
+    return ctor(
+      year ?? this.year,
+      month ?? this.month,
+      day ?? this.day,
+      hour ?? this.hour,
+      minute ?? this.minute,
+      second ?? this.second,
+      millisecond ?? this.millisecond,
+      microsecond ?? this.microsecond,
+    );
+  }
 }

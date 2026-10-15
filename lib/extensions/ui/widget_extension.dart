@@ -334,4 +334,18 @@ extension WidgetExtension on Widget {
       child: this,
     ),
   );
+
+  /// Adds a long-press gesture to the widget.
+  Widget onLongPress(VoidCallback? onLongPress) =>
+      GestureDetector(onLongPress: onLongPress, child: this);
+
+  /// Wraps in a [Hero] with the given [tag].
+  Widget hero(Object tag) => Hero(tag: tag, child: this);
+
+  /// Wraps in a [Tooltip].
+  Widget tooltip(String message) => Tooltip(message: message, child: this);
+
+  /// Wraps in [Semantics] with an accessibility [label].
+  Widget semantics(String label, {bool? button, bool? header}) =>
+      Semantics(label: label, button: button, header: header, child: this);
 }

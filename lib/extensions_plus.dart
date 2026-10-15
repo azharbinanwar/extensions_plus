@@ -2,6 +2,7 @@ library;
 
 import 'dart:convert';
 import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,8 +37,14 @@ part 'extensions/data_types/string_text_style_extension.dart';
 
 part 'extensions/data_types/num_extension.dart';
 
+part 'extensions/data_types/int_extension.dart';
+
+part 'extensions/data_types/nullable_extension.dart';
+
 // DateTime
 part 'extensions/date_time/date_time_extension.dart';
+
+part 'extensions/date_time/duration_extension.dart';
 
 // Collections
 part 'extensions/collections/iterable_extension.dart';

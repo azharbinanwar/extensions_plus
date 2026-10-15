@@ -8,4 +8,13 @@ extension UtilityContextExtension on BuildContext {
   /// Copies the given text to the clipboard.
   Future<void> copyToClipboard(String text) =>
       Clipboard.setData(ClipboardData(text: text));
+
+  /// True when the active theme is dark.
+  bool get isDarkMode => Theme.of(this).brightness == Brightness.dark;
+
+  /// True when the ambient text direction is right-to-left.
+  bool get isRtl => Directionality.of(this) == TextDirection.rtl;
+
+  /// The current [Locale].
+  Locale get locale => Localizations.localeOf(this);
 }

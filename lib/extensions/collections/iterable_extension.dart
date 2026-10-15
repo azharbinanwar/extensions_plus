@@ -158,4 +158,42 @@ extension IterableExtension<T> on Iterable<T> {
     final first = elementAt(0);
     return every((element) => element == first);
   }
+
+  /// Sorted copy by a comparable key. Named `orderBy` to avoid clashing with
+  /// `package:collection`'s `sortedBy`.
+  ///
+  /// `users.orderBy((u) => u.age)`
+  /// `users.orderBy((u) => u.age, descending: true)`
+  List<T> orderBy<R extends Comparable>(
+    R Function(T) selector, {
+    bool descending = false,
+  }) {
+    final list = toList();
+    list.sort((a, b) {
+      final c = selector(a).compareTo(selector(b));
+      return descending ? -c : c;
+    });
+    return list;
+  }
+
+  /// The last [count] elements, or all of them when shorter.
+  ///
+  /// `[1, 2, 3, 4].takeLast(2)` // [3, 4]
+  Iterable<T> takeLast(int count) {
+    if (count <= 0) return const Iterable.empty();
+    final n = length;
+    return count >= n ? this : skip(n - count);
+  }
+
+  /// Inserts [separator] between every element.
+  ///
+  /// `[a, b, c].intersperse(x)` // [a, x, b, x, c]
+  Iterable<T> intersperse(T separator) sync* {
+    var first = true;
+    for (final e in this) {
+      if (!first) yield separator;
+      first = false;
+      yield e;
+    }
+  }
 }

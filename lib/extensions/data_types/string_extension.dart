@@ -113,4 +113,44 @@ extension StringExtension on String {
 
     return true;
   }
+
+  /// True when the string is empty or whitespace only.
+  bool get isBlank => trim().isEmpty;
+
+  /// True for http(s) URLs with a host.
+  bool get isUrl {
+    final uri = Uri.tryParse(this);
+    return uri != null &&
+        (uri.scheme == 'http' || uri.scheme == 'https') &&
+        uri.host.isNotEmpty;
+  }
+
+  /// Loose phone check: optional +, 7 to 15 digits, spaces, dashes, dots, parens allowed.
+  bool get isPhone =>
+      RegExp(r'^\+?[\d\s\-().]{7,20}$').hasMatch(this) &&
+      replaceAll(RegExp(r'\D'), '').length >= 7;
+
+  /// Parses to int, or [defaultValue] when not a valid integer.
+  int toInt({int defaultValue = 0}) => int.tryParse(this) ?? defaultValue;
+
+  /// Hides all but the last [visibleEnd] characters.
+  ///
+  /// `'4111111111111111'.mask()`                  // ************1111
+  /// `'secret'.mask(visibleStart: 1, visibleEnd: 1)` // s****t
+  String mask({int visibleStart = 0, int visibleEnd = 4, String char = '*'}) {
+    if (length <= visibleStart + visibleEnd) return this;
+    return substring(0, visibleStart) +
+        char * (length - visibleStart - visibleEnd) +
+        substring(length - visibleEnd);
+  }
+
+  /// Parses `#RGB`, `#RRGGBB`, or `#AARRGGBB` (hash optional). Null when invalid.
+  Color? toColor() {
+    var hex = replaceFirst('#', '').toUpperCase();
+    if (hex.length == 3) hex = hex.split('').map((c) => '$c$c').join();
+    if (hex.length == 6) hex = 'FF$hex';
+    if (hex.length != 8) return null;
+    final value = int.tryParse(hex, radix: 16);
+    return value == null ? null : Color(value);
+  }
 }

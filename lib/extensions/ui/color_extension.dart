@@ -170,4 +170,9 @@ extension ColorExtension on Color {
   Color get shade800 => shades[8];
 
   Color get shade900 => shades[9];
+
+  /// Returns this color with [opacity] in 0..1, using the non-deprecated
+  /// `withValues` API.
+  Color withOpacityValue(double opacity) =>
+      withValues(alpha: opacity.clamp(0.0, 1.0));
 }
